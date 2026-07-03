@@ -1442,13 +1442,14 @@ textarea {
   justify-content: space-between;
   gap: 24px;
   padding: 34px 40px;
-  color: #fff;
-  background: #17211d;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  background: #fff;
 }
 
 .site-footer p {
   margin: 5px 0 0;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--muted);
 }
 
 .footer-brand {
@@ -1459,10 +1460,10 @@ textarea {
 
 .footer-logo {
   display: block;
-  width: 180px;
+  width: 220px;
   max-width: 42vw;
   height: auto;
-  filter: brightness(0) invert(1);
+  border-radius: 2px;
 }
 
 .site-footer a {
