@@ -1,0 +1,7 @@
+name = "e-gooo-eu"
+compatibility_date = "2026-07-03"
+main = "src/index.js"
+
+[assets]
+directory = "."
+binding = "ASSETS"
