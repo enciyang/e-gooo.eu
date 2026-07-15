@@ -1079,6 +1079,37 @@ textarea {
   margin: 6px 0 0;
 }
 
+.cooperation-benefits {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.cooperation-benefits article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  background: var(--paper);
+  box-shadow: 0 10px 30px rgba(29, 36, 33, 0.05);
+}
+
+.cooperation-benefits span {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--copper);
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.cooperation-benefits p {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
 .dealer-form {
   display: grid;
   grid-column: 1 / -1;
@@ -1525,6 +1556,7 @@ textarea {
   .architecture-grid,
   .about-grid,
   .service-grid,
+  .cooperation-benefits,
   .case-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1564,6 +1596,7 @@ textarea {
   .architecture-grid,
   .about-grid,
   .service-grid,
+  .cooperation-benefits,
   .product-support-grid,
   .selection-grid,
   .catalog-grid,
