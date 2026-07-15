@@ -492,10 +492,12 @@ function openMediaDialog(key) {
 }
 
 function setHeroSlide(index) {
+  if (!heroSlides.length) return;
   activeHeroIndex = (index + heroSlides.length) % heroSlides.length;
   heroSlides.forEach((slide, slideIndex) => {
     slide.classList.toggle("is-active", slideIndex === activeHeroIndex);
   });
+  if (!heroControls) return;
   heroControls.querySelectorAll("button").forEach((button, buttonIndex) => {
     button.classList.toggle("is-active", buttonIndex === activeHeroIndex);
     button.setAttribute("aria-pressed", String(buttonIndex === activeHeroIndex));
@@ -503,6 +505,7 @@ function setHeroSlide(index) {
 }
 
 function initHeroCarousel() {
+  if (!heroControls || heroSlides.length <= 1) return;
   heroSlides.forEach((_, index) => {
     const button = createElement("button", "", `Slide ${index + 1}`);
     button.type = "button";
