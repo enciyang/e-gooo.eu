@@ -29,9 +29,7 @@
         <a href="index.html#home">Home</a>
         <a href="product.html" aria-current="page">Product</a>
         <a href="technology.html">Technology</a>
-        <a href="sustainability.html">Sustainability</a>
-        <a href="cooperation.html">Cooperation</a>
-        <a class="nav-cta" href="about.html">About Us</a>
+        <a class="nav-cta" href="cooperation.html">Partnership</a>
       </nav>
     </header>
 
@@ -49,34 +47,54 @@
         </div>
       </section>
 
-      <section class="section product-section product-page-section">
+      <section class="section product-section product-page-section" id="product-list">
         <div class="section-header">
           <div>
             <div class="section-kicker">Product</div>
-            <h2>Choose a product family, then open the details.</h2>
+            <h2>Start with the four product entrances.</h2>
           </div>
           <p>
-            This page carries the product images, opening categories, system notes,
-            technical information and quotation path separated from the homepage cover.
+            Product information is organized by the same outline visitors choose from
+            the homepage cover, then expanded with images, parameters and inquiry paths.
           </p>
         </div>
 
+        <div class="product-family-grid" aria-label="Product family entrances">
+          <a class="product-family-card" href="#product-list" data-family-filter="window">
+            <span>Window</span>
+            <strong>E Ultra 96</strong>
+            <small>High-performance window systems for private residences.</small>
+          </a>
+          <a class="product-family-card" href="#product-list" data-family-filter="door">
+            <span>Door</span>
+            <strong>96 hinged</strong>
+            <small>Hinged door systems for terraces, balconies and main openings.</small>
+          </a>
+          <a class="product-family-card" href="#product-list" data-family-filter="sliding">
+            <span>Sliding</span>
+            <strong>125 sliding</strong>
+            <small>Wide-opening sliding systems for panoramic living scenes.</small>
+          </a>
+          <a class="product-family-card" href="#product-list" data-family-filter="other">
+            <span>Other Series</span>
+            <strong>Selected systems</strong>
+            <small>Passive, screen-integrated and project-specific options.</small>
+          </a>
+        </div>
+
         <div class="filter-bar" aria-label="Product filters">
-          <button class="filter-button is-active" type="button" data-filter="all">All</button>
-          <button class="filter-button" type="button" data-filter="window">Windows</button>
-          <button class="filter-button" type="button" data-filter="door">Doors</button>
-          <button class="filter-button" type="button" data-filter="passive">Passive</button>
-          <button class="filter-button" type="button" data-filter="screen">Screen Integrated</button>
+          <button class="filter-button is-active" type="button" data-filter="all">All Series</button>
+          <button class="filter-button" type="button" data-filter="window">Window</button>
+          <button class="filter-button" type="button" data-filter="door">Door</button>
           <button class="filter-button" type="button" data-filter="sliding">Sliding</button>
+          <button class="filter-button" type="button" data-filter="other">Other Series</button>
         </div>
 
         <div class="official-category-grid" aria-label="Product categories">
-          <article><img src="assets/cn-official/official-15.jpg" alt="System windows icon"><span>System Windows</span></article>
-          <article><img src="assets/cn-official/official-16.jpg" alt="System doors icon"><span>System Doors</span></article>
-          <article><img src="assets/cn-official/official-17.jpg" alt="Sunroom icon"><span>System Sunrooms</span></article>
-          <article><img src="assets/cn-official/official-18.jpg" alt="Skylight icon"><span>Lightwell Skylights</span></article>
-          <article><img src="assets/cn-official/official-19.jpg" alt="Screen windows and doors icon"><span>Screen Windows / Doors</span></article>
-          <article><img src="assets/cn-official/official-20.jpg" alt="Curtain wall icon"><span>Curtain Wall</span></article>
+          <article><img src="assets/cn-official/official-15.jpg" alt="Window system icon"><span>Window / E Ultra 96</span></article>
+          <article><img src="assets/cn-official/official-16.jpg" alt="Hinged door system icon"><span>Door / 96 hinged</span></article>
+          <article><img src="assets/cn-official/official-20.jpg" alt="Sliding system icon"><span>Sliding / 125 sliding</span></article>
+          <article><img src="assets/cn-official/official-19.jpg" alt="Other series icon"><span>Other Series</span></article>
         </div>
 
         <div class="product-grid" data-product-grid></div>
@@ -177,7 +195,11 @@
           <p>Custom window and door systems for premium residential projects.</p>
         </div>
       </div>
-      <a href="#products">Back to top</a>
+      <nav class="footer-links" aria-label="Secondary pages">
+        <a href="sustainability.html">Sustainability</a>
+        <a href="about.html">About Us</a>
+        <a href="#products">Back to top</a>
+      </nav>
     </footer>
   </body>
 </html>

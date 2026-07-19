@@ -255,6 +255,7 @@ const mediaContent = {
 const grid = document.querySelector("[data-product-grid]");
 const comparisonPanel = document.querySelector("[data-comparison-table]");
 const filterButtons = document.querySelectorAll("[data-filter]");
+const familyLinks = document.querySelectorAll("[data-family-filter]");
 const dialog = document.querySelector("[data-product-dialog]");
 const dialogBody = document.querySelector("[data-dialog-body]");
 const dialogClose = document.querySelector("[data-dialog-close]");
@@ -345,12 +346,27 @@ function createProductCard(product) {
   return card;
 }
 
+function productMatchesFilter(product, filter) {
+  if (filter === "all") return true;
+  if (filter === "other") {
+    return product.categories.includes("passive") || product.categories.includes("screen");
+  }
+  return product.categories.includes(filter);
+}
+
+function setActiveFilter(filter) {
+  filterButtons.forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.filter === filter);
+  });
+  familyLinks.forEach((link) => {
+    link.classList.toggle("is-active", link.dataset.familyFilter === filter);
+  });
+}
+
 function renderProducts(filter = "all") {
   if (!grid) return;
 
-  const filtered = filter === "all"
-    ? products
-    : products.filter((product) => product.categories.includes(filter));
+  const filtered = products.filter((product) => productMatchesFilter(product, filter));
 
   grid.replaceChildren(...filtered.map(createProductCard));
 }
@@ -522,9 +538,17 @@ function initHeroCarousel() {
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    filterButtons.forEach((item) => item.classList.remove("is-active"));
-    button.classList.add("is-active");
-    renderProducts(button.dataset.filter);
+    const filter = button.dataset.filter;
+    setActiveFilter(filter);
+    renderProducts(filter);
+  });
+});
+
+familyLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    const filter = link.dataset.familyFilter || "all";
+    setActiveFilter(filter);
+    renderProducts(filter);
   });
 });
 
