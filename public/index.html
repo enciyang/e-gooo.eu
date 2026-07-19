@@ -8,7 +8,7 @@
       name="description"
       content="E-GE designs aluminum window, door, passive house, screen-integrated and full-view sliding systems for premium residential projects and global partners."
     >
-    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" href="assets/brand/e-gooo-favicon.png">
     <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
     <link rel="stylesheet" href="styles.css">
@@ -27,10 +27,11 @@
       </button>
       <nav class="site-nav" id="site-nav" data-site-nav>
         <a href="#home">Home</a>
-        <a href="#products">Product</a>
-        <a href="#sustainability">Sustainability</a>
-        <a href="#cooperation">Cooperation</a>
-        <a class="nav-cta" href="#about">About Us</a>
+        <a href="product.html">Product</a>
+        <a href="technology.html">Technology</a>
+        <a href="sustainability.html">Sustainability</a>
+        <a href="cooperation.html">Cooperation</a>
+        <a class="nav-cta" href="about.html">About Us</a>
       </nav>
     </header>
 
@@ -41,21 +42,40 @@
         <div class="hero-content">
           <img class="hero-brand-logo" src="assets/brand/e-gooo-logo-wordmark.png" alt="e-gooo">
           <h1>Where architecture breathes and life flows.</h1>
+          <nav class="cover-outline" aria-label="Homepage outline">
+            <a class="cover-outline-item product-outline-item" href="product.html">
+              <span>Product</span>
+              <strong>Window · Door · Sliding · Other Series</strong>
+              <small>E Ultra 96 / 96 hinged / 125 sliding</small>
+            </a>
+            <a class="cover-outline-item" href="technology.html">
+              <span>Technology</span>
+              <strong>System logic and parameters</strong>
+            </a>
+            <a class="cover-outline-item" href="sustainability.html">
+              <span>Sustainability</span>
+              <strong>Capability and certification</strong>
+            </a>
+            <a class="cover-outline-item" href="cooperation.html">
+              <span>Partnership</span>
+              <strong>Inviting partnerships from around the world</strong>
+            </a>
+          </nav>
         </div>
       </section>
 
-      <section class="intro-strip" aria-label="Product families" hidden>
-        <a class="intro-item" href="#products">
-          <span>S Series</span>
-          <strong>System windows, passive windows and full-house opening packages</strong>
+      <section class="intro-strip" aria-label="Product outline">
+        <a class="intro-item" href="product.html">
+          <span>Window</span>
+          <strong>E Ultra 96</strong>
         </a>
-        <a class="intro-item" href="#products">
-          <span>E Series</span>
-          <strong>System doors, screen-integrated products and narrow-frame solutions</strong>
+        <a class="intro-item" href="product.html">
+          <span>Door</span>
+          <strong>96 hinged / 125 sliding</strong>
         </a>
-        <a class="intro-item" href="#products">
-          <span>Jingran</span>
-          <strong>Sunrooms, skylights, curtain wall and panoramic sliding products</strong>
+        <a class="intro-item" href="product.html">
+          <span>Other Series</span>
+          <strong>More window and door systems</strong>
         </a>
       </section>
 
@@ -146,15 +166,15 @@
         </div>
       </section>
 
-      <section class="section product-section" id="products">
+      <section class="section product-section" id="products" hidden>
         <div class="section-header">
           <div>
             <div class="section-kicker">Product</div>
-            <h2>E Ultra 96 and selected window & door systems.</h2>
+            <h2>Product information expands after the visitor chooses a category.</h2>
           </div>
           <p>
-            A focused product presentation for premium residential openings:
-            windows, hinged doors, sliding doors and supporting system details.
+            The homepage keeps only the product outline. This section carries the
+            images, system notes and technical paths for visitors who want more.
           </p>
         </div>
 
@@ -185,7 +205,7 @@
               <h3>Profile, hardware, drainage, sealing, glass and colors</h3>
               <p>Use close-up technical images to explain why each system performs, not only how it looks.</p>
             </div>
-            <a class="button primary" href="#technology">View Technology</a>
+            <a class="button primary" href="technology.html">View Technology</a>
           </article>
           <article class="process-card">
             <div>
@@ -193,7 +213,7 @@
               <h3>Compare by opening, performance and application</h3>
               <p>Use the six-system language to guide dealers, architects and buyers from product category to project fit.</p>
             </div>
-            <a class="button secondary dark-text" href="#technology">View Systems</a>
+            <a class="button secondary dark-text" href="technology.html">View Systems</a>
           </article>
         </div>
       </section>
@@ -264,7 +284,7 @@
         </div>
       </section>
 
-      <section class="section systems-section" id="technology">
+      <section class="section systems-section" id="technology" hidden>
         <div class="section-header">
           <div>
             <div class="section-kicker">Technology</div>
@@ -372,7 +392,7 @@
         </div>
       </section>
 
-      <section class="section sustainability-section" id="sustainability">
+      <section class="section sustainability-section" id="sustainability" hidden>
         <div class="section-header">
           <div>
             <div class="section-kicker">Sustainability</div>
@@ -430,7 +450,7 @@
         </div>
       </section>
 
-      <section class="section dealer-section cooperation-section" id="cooperation">
+      <section class="section dealer-section cooperation-section" id="cooperation" hidden>
         <div>
           <div class="section-kicker">Cooperation</div>
           <h2>Inviting partnerships from around the world.</h2>
@@ -541,7 +561,7 @@
         </form>
       </section>
 
-      <section class="section about-section compact-about" id="about">
+      <section class="section about-section compact-about" id="about" hidden>
         <div class="section-header">
           <div>
             <div class="section-kicker">About Us</div>
