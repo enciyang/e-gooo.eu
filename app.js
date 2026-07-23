@@ -19,14 +19,14 @@ const products = [
     specs: [
       ["System depth", "96 mm"],
       ["Sash depth", "105 mm"],
-      ["Maximum sash weight", "E-GE custom hardware: 100 kg / Sobinco hardware: 200 kg"],
-      ["Sash height range", "E-GE custom hardware: 780-1800 mm / Sobinco: 520-3000 mm depending on sash width"],
-      ["Sash width range", "E-GE custom hardware: 440-1000 mm / Sobinco: 440-1700 mm"],
+      ["Maximum sash weight", "E-GOOO custom hardware: 100 kg / Sobinco hardware: 200 kg"],
+      ["Sash height range", "E-GOOO custom hardware: 780-1800 mm / Sobinco: 520-3000 mm depending on sash width"],
+      ["Sash width range", "E-GOOO custom hardware: 440-1000 mm / Sobinco: 440-1700 mm"],
       ["Frame face width", "55 mm"],
       ["Sash face width", "72 mm"],
       ["Watertightness", "Class 6 under GB/T 7106-2019"]
     ],
-    hardware: ["E-GE custom hardware or Sobinco hardware", "Concealed fitting system with hidden hinges", "Shear-bonded corner injection"],
+    hardware: ["E-GOOO custom hardware or Sobinco hardware", "Concealed fitting system with hidden hinges", "Shear-bonded corner injection"],
     colors: ["Powder coating", "Project-specific coating"]
   },
   {
@@ -43,7 +43,7 @@ const products = [
         image: "assets/product-samples/e-ultra-96-outward-door.webp"
       }
     ],
-    features: ["96 mm system depth", "Up to 150 kg sash with E-GE custom hardware", "Balcony and terrace door application"],
+    features: ["96 mm system depth", "Up to 150 kg sash with E-GOOO custom hardware", "Balcony and terrace door application"],
     details: [
       ["Opening type", "Hinged door"],
       ["Sample corner", "E-ultra 96 inward and outward hinged door samples"],
@@ -52,14 +52,14 @@ const products = [
     specs: [
       ["System depth", "96 mm"],
       ["Sash depth", "106 mm"],
-      ["Maximum sash weight", "E-GE custom hardware: 150 kg / Sobinco hardware: 160 kg"],
-      ["Sash height range", "E-GE custom hardware: 650-3000 mm / Sobinco: 1800-3000 mm"],
-      ["Sash width range", "E-GE custom hardware: 650-1000 mm / Sobinco: 600-1200 mm"],
+      ["Maximum sash weight", "E-GOOO custom hardware: 150 kg / Sobinco hardware: 160 kg"],
+      ["Sash height range", "E-GOOO custom hardware: 650-3000 mm / Sobinco: 1800-3000 mm"],
+      ["Sash width range", "E-GOOO custom hardware: 650-1000 mm / Sobinco: 600-1200 mm"],
       ["Frame face width", "55 mm"],
       ["Sash face width", "107 mm"],
       ["Application", "Balcony / terrace door"]
     ],
-    hardware: ["E-GE custom hardware or Sobinco hardware", "C-groove exposed hinge configuration", "Shear-bonded corner injection"],
+    hardware: ["E-GOOO custom hardware or Sobinco hardware", "C-groove exposed hinge configuration", "Shear-bonded corner injection"],
     colors: ["Powder coating", "Project-specific coating"]
   },
   {
@@ -79,14 +79,14 @@ const products = [
     specs: [
       ["System depth", "125 mm"],
       ["Sash depth", "55 mm"],
-      ["Maximum sash weight", "E-GE custom hardware: 400 kg single sash / Sobinco hardware: 440 kg single sash"],
-      ["Sash height range", "E-GE custom hardware: 1600-3500 mm / Sobinco: 1200-3500 mm"],
-      ["Sash width range", "E-GE custom hardware: 730-3000 mm single sash / Sobinco: 750-3700 mm single sash"],
+      ["Maximum sash weight", "E-GOOO custom hardware: 400 kg single sash / Sobinco hardware: 440 kg single sash"],
+      ["Sash height range", "E-GOOO custom hardware: 1600-3500 mm / Sobinco: 1200-3500 mm"],
+      ["Sash width range", "E-GOOO custom hardware: 730-3000 mm single sash / Sobinco: 750-3700 mm single sash"],
       ["Frame face width", "51.5 mm"],
       ["Sash face width", "99 mm"],
       ["Watertightness", "Class 5 under GB/T 31433-2015"]
     ],
-    hardware: ["E-GE custom lift-slide hardware or Sobinco hardware", "Concealed fitting system", "Shear-bonded corner injection"],
+    hardware: ["E-GOOO custom lift-slide hardware or Sobinco hardware", "Concealed fitting system", "Shear-bonded corner injection"],
     colors: ["Powder coating", "Anodizing", "Project-specific coating"]
   }
 ];
@@ -94,9 +94,9 @@ const products = [
 const mediaContent = {
   "brand-film": {
     label: "Brand Video",
-    title: "E-GE brand film area",
+    title: "E-GOOO brand film area",
     image: "assets/clean/clean-sea-view-window.jpg",
-    copy: "A dedicated brand film can introduce E-GE's quiet-living positioning, product systems, design service and premium residential applications."
+    copy: "A dedicated brand film can introduce E-GOOO's quiet-living positioning, product systems, design service and premium residential applications."
   },
   "process-film": {
     label: "Process Video",
@@ -174,7 +174,7 @@ function createSampleGallery(samples = []) {
     const figure = document.createElement("figure");
     const sampleImage = document.createElement("img");
     sampleImage.src = sample.image;
-    sampleImage.alt = `${sample.label} for ${sample.title || "E-GE product"}`;
+    sampleImage.alt = `${sample.label} for ${sample.title || "E-GOOO product"}`;
     sampleImage.loading = "lazy";
 
     const caption = document.createElement("figcaption");
@@ -447,14 +447,18 @@ document.querySelectorAll("[data-media-open]").forEach((button) => {
   button.addEventListener("click", () => openMediaDialog(button.dataset.mediaOpen));
 });
 
-window.addEventListener("scroll", () => {
+function updateHeaderState() {
   if (header) header.classList.toggle("is-scrolled", window.scrollY > 24);
-}, { passive: true });
+}
+
+window.addEventListener("scroll", updateHeaderState, { passive: true });
+updateHeaderState();
 
 if (menuButton && header) {
   menuButton.addEventListener("click", () => {
     const isOpen = header.classList.toggle("is-open");
     menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
   });
 }
 
@@ -463,6 +467,7 @@ if (siteNav && header && menuButton) {
     if (event.target.closest("a")) {
       header.classList.remove("is-open");
       menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Open navigation");
     }
   });
 }
@@ -478,7 +483,7 @@ leadForms.forEach((form) => {
     leads.push(lead);
     localStorage.setItem("ege-leads-v2", JSON.stringify(leads));
 
-    const subject = `${lead.type} from E-GE English website`;
+    const subject = `${lead.type} from E-GOOO English website`;
     const body = Object.entries(lead)
       .map(([key, value]) => `${key}: ${value}`)
       .join("\n");
