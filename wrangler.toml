@@ -1,6 +1,10 @@
 name = "e-gooowebsite"
 compatibility_date = "2026-07-03"
 main = "src/index.js"
+routes = [
+  "e-gooo.eu/*",
+  "www.e-gooo.eu/*",
+]
 
 [assets]
 directory = "./public"
