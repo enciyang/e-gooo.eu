@@ -1,239 +1,93 @@
-const localCatalogues = {
-  s120Door: "assets/catalogues/ege-s120-door-screen-manual.pdf",
-  jiran150: "assets/catalogues/ege-jingran150-sliding-door-manual.pdf",
-  s105hi: "assets/catalogues/ege-s105hi-passive-window-manual.pdf",
-  s120Window: "assets/catalogues/ege-s120-window-screen-manual.pdf",
-  e85Inward: "assets/catalogues/ege-e85-inward-window-manual.pdf",
-  e85Outward: "assets/catalogues/ege-e85-outward-window-manual.pdf",
-  e105n: "assets/catalogues/ege-e105n-passive-window-manual.pdf",
-  e120n: "assets/catalogues/ege-e120n-window-screen-manual.pdf",
-  s76: "assets/catalogues/ege-s76-three-in-one-manual.pdf",
-  s96hi: "assets/catalogues/ege-s96hi-passive-window-manual.pdf"
-};
-
 // Replace with the confirmed overseas sales mailbox before launch if needed.
 const inquiryRecipient = "export@e-ge.cn";
 
 const products = [
   {
-    id: "s76",
-    title: "Guanyan S76 Three-in-One System",
-    tag: "S Series / Window + Door",
-    summary: "A standard residential platform covering inward windows, outward windows, inward swing doors and outward swing doors.",
-    image: "assets/clean/clean-s76-system.jpg",
-    categories: ["window", "door"],
-    catalogue: localCatalogues.s76,
-    features: ["6060-T66 aluminum profiles", "Patented RT thermal strips", "Injected corner joint process"],
-    details: [
-      ["Opening types", "Inward window, outward window, inward door and outward door"],
-      ["Positioning", "Standard S-series platform for complete residential packages"],
-      ["Best for", "Projects that need one consistent profile language across windows and doors"]
-    ],
-    specs: [
-      ["System depth", "76 mm class"],
-      ["Opening mode", "Inward / outward window and door"],
-      ["Application", "Complete residential packages"]
-    ],
-    hardware: ["Inward and outward swing hardware", "Optional multipoint door locking", "Drainage and corner sealing details"],
-    colors: ["Textured black", "Warm grey", "Wood-grain finish", "Custom powder coating"]
-  },
-  {
-    id: "s96hi",
-    title: "Guanyan S96Hi Passive Inward-Opening Window",
-    tag: "S Series / Passive",
-    summary: "A passive inward-opening window with a flush frame-and-sash expression and quiet thermal comfort.",
-    image: "assets/clean/clean-s96hi-passive-window.jpg",
-    categories: ["window", "passive"],
-    catalogue: localCatalogues.s96hi,
-    features: ["Flush frame and sash", "Four-seal inward-opening structure", "XPS glass-edge insulation"],
-    details: [
-      ["Opening type", "Passive inward-opening window"],
-      ["Profile note", "Flush visual relationship between frame and sash"],
-      ["Best for", "Passive-house, high-comfort residential and cold-climate projects"]
-    ],
-    specs: [
-      ["System depth", "96 mm class"],
-      ["Profile expression", "Frame and sash flush"],
-      ["Thermal strategy", "RT thermal strip and XPS glass-edge insulation"]
-    ],
-    hardware: ["Inward tilt-and-turn hardware", "Multi-point locking", "Four-sided sealing structure"],
-    colors: ["Matte black", "Alpine white", "Graphite grey", "Project-specific coating"]
-  },
-  {
-    id: "s105hi",
-    title: "Guanyan S105Hi Passive Inward-Opening Window",
-    tag: "S Series / Passive",
-    summary: "A deeper passive inward-opening platform for projects that prioritize envelope performance and acoustic comfort.",
-    image: "assets/clean/clean-s105hi-passive-window.jpg",
-    categories: ["window", "passive"],
-    catalogue: localCatalogues.s105hi,
-    features: ["Aluminum load-bearing glass blocks", "Multi-chamber thermal breaks", "Welded gasket details"],
-    details: [
-      ["Opening type", "Passive inward-opening window"],
-      ["Profile note", "Non-flush frame and sash structure"],
-      ["Best for", "Premium residences and passive-house upgrade packages"]
-    ],
-    specs: [
-      ["System depth", "105 mm class"],
-      ["Glass support", "Composite load-bearing glass blocks"],
-      ["Thermal strategy", "Multi-chamber thermal breaks and edge insulation"]
-    ],
-    hardware: ["Inward tilt-and-turn hardware", "Welded gasket package", "Reinforced glass support blocks"],
-    colors: ["Matte black", "Warm white", "Stone grey", "Project-specific coating"]
-  },
-  {
-    id: "s120-window",
-    title: "Guanyan S120 Outward-Opening Window with Screen",
-    tag: "S Series / Screen Integrated",
-    summary: "An outward-opening window and screen integrated system for broad residential use and strong everyday ventilation.",
-    image: "assets/clean/clean-s120-window-screen.jpg",
-    categories: ["window", "screen"],
-    catalogue: localCatalogues.s120Window,
-    features: ["Integrated screen structure", "Safety stay and limiter options", "Negative-pressure sealing points"],
-    details: [
-      ["Opening type", "Outward-opening window with integrated screen"],
-      ["Performance focus", "Safety, ventilation, sealing and insect protection in one system"],
-      ["Best for", "Villas, apartments and markets that prefer outward-opening windows"]
-    ],
-    specs: [
-      ["System depth", "120 mm class"],
-      ["Screen", "Integrated outward screen configuration"],
-      ["Safety", "Anti-drop rope and opening limiter options"]
-    ],
-    hardware: ["Negative-pressure lock points", "Safety rope", "Adjustable opening limiter"],
-    colors: ["Textured black", "Champagne grey", "Warm white", "Custom powder coating"]
-  },
-  {
-    id: "s120-door",
-    title: "Guanyan S120 Outward-Opening Door with Screen",
-    tag: "S Series / Door + Screen",
-    summary: "A door and screen integrated product for residential balconies, terraces and garden-facing openings.",
-    image: "assets/clean/clean-s120-door-screen.jpg",
-    categories: ["door", "screen"],
-    catalogue: localCatalogues.s120Door,
-    features: ["Multi-seal door structure", "4SG warm-edge glazing option", "RT insulation strip design"],
-    details: [
-      ["Opening type", "Outward-opening door with integrated screen"],
-      ["Performance focus", "Door sealing, thermal comfort and insect protection"],
-      ["Best for", "Balcony, terrace and private-home transition spaces"]
-    ],
-    specs: [
-      ["System depth", "120 mm class"],
-      ["Glass option", "Warm-edge 4SG glazing support"],
-      ["Application", "Balcony, terrace and courtyard door openings"]
-    ],
-    hardware: ["Outward door hardware", "Multi-seal bottom detail", "Optional multipoint locking"],
-    colors: ["Textured black", "Bronze grey", "Warm white", "Custom powder coating"]
-  },
-  {
-    id: "e85-inward",
-    title: "Guanyan E85 Inward-Opening Window",
-    tag: "E Series / Slimline",
-    summary: "A slimline inward-opening window for modern residences that need clearer views with refined profile proportions.",
-    image: "assets/clean/clean-e85-inward-window.jpg",
+    id: "e-ultra-96-inward-window",
+    title: "E-ultra 96 Inward-Opening Window",
+    tag: "E Ultra 96 / Window",
+    summary: "A 96 mm inward-opening window system with strong air tightness, wind-load resistance and verified sample-corner detailing.",
+    image: "assets/product-samples/e-ultra-96-inward-window.webp",
     categories: ["window"],
-    catalogue: localCatalogues.e85Inward,
-    features: ["Slimline mullion connection", "Four-seal inward sash", "XPS glass-edge thermal padding"],
+    catalogue: null,
+    features: ["38 dB acoustic index under GB/T 8485-2008", "Class 8 air permeability under GB/T 7106-2019", "Class 9 wind-load resistance under GB/T 7106-2019"],
     details: [
       ["Opening type", "Inward-opening window"],
-      ["Series options", "Narrow-frame and wide-frame variants in the E85 family"],
-      ["Best for", "Modern residential facades and interiors that prioritize daylight"]
+      ["Sample corner", "E-ultra 96 inward window section sample"],
+      ["Best for", "Premium residences that need quiet rooms, strong sealing and large operable sash planning"]
     ],
     specs: [
-      ["System depth", "85 mm class"],
-      ["Variant", "Narrow-frame and wide-frame planning options"],
-      ["Visual focus", "Slimline mullion and larger daylight area"]
+      ["System depth", "96 mm"],
+      ["Sash depth", "105 mm"],
+      ["Maximum sash weight", "E-GE custom hardware: 100 kg / Sobinco hardware: 200 kg"],
+      ["Sash height range", "E-GE custom hardware: 780-1800 mm / Sobinco: 520-3000 mm depending on sash width"],
+      ["Sash width range", "E-GE custom hardware: 440-1000 mm / Sobinco: 440-1700 mm"],
+      ["Frame face width", "55 mm"],
+      ["Sash face width", "72 mm"],
+      ["Watertightness", "Class 6 under GB/T 7106-2019"]
     ],
-    hardware: ["Tilt-and-turn hardware", "Four-seal inward sash", "Reinforced slim T-connection"],
-    colors: ["Black", "Silver grey", "Warm white", "Wood-grain finish"]
+    hardware: ["E-GE custom hardware or Sobinco hardware", "Concealed fitting system with hidden hinges", "Shear-bonded corner injection"],
+    colors: ["Powder coating", "Project-specific coating"]
   },
   {
-    id: "e85-outward",
-    title: "Guanyan E85 Outward-Opening Window",
-    tag: "E Series / Slimline",
-    summary: "A slimline outward-opening window with reinforced sealing and safety details for exposed elevations.",
-    image: "assets/clean/clean-e85-outward-window.jpg",
-    categories: ["window"],
-    catalogue: localCatalogues.e85Outward,
-    features: ["Negative-pressure lock points", "Anti-drop safety rope", "Adjustable opening limiter"],
+    id: "e-ultra-96-hinged-door",
+    title: "E-ultra 96 Hinged Door",
+    tag: "E Ultra 96 / Door",
+    summary: "A 96 mm hinged door system for balcony and terrace openings, supported by inward and outward sample-corner images.",
+    image: "assets/product-samples/e-ultra-96-inward-door.webp",
+    categories: ["door"],
+    catalogue: null,
+    samples: [
+      {
+        label: "Outward-opening sample",
+        image: "assets/product-samples/e-ultra-96-outward-door.webp"
+      }
+    ],
+    features: ["96 mm system depth", "Up to 150 kg sash with E-GE custom hardware", "Balcony and terrace door application"],
     details: [
-      ["Opening type", "Outward-opening window"],
-      ["Series options", "Narrow-frame and wide-frame variants in the E85 family"],
-      ["Best for", "High-rise or exterior-facing openings where outward operation is preferred"]
+      ["Opening type", "Hinged door"],
+      ["Sample corner", "E-ultra 96 inward and outward hinged door samples"],
+      ["Best for", "Balcony, terrace and courtyard-facing residential door openings"]
     ],
     specs: [
-      ["System depth", "85 mm class"],
-      ["Variant", "Narrow-frame and wide-frame planning options"],
-      ["Safety", "Opening limiter and safety rope package"]
+      ["System depth", "96 mm"],
+      ["Sash depth", "106 mm"],
+      ["Maximum sash weight", "E-GE custom hardware: 150 kg / Sobinco hardware: 160 kg"],
+      ["Sash height range", "E-GE custom hardware: 650-3000 mm / Sobinco: 1800-3000 mm"],
+      ["Sash width range", "E-GE custom hardware: 650-1000 mm / Sobinco: 600-1200 mm"],
+      ["Frame face width", "55 mm"],
+      ["Sash face width", "107 mm"],
+      ["Application", "Balcony / terrace door"]
     ],
-    hardware: ["Negative-pressure lock points", "Anti-drop safety rope", "Adjustable opening limiter"],
-    colors: ["Black", "Silver grey", "Champagne", "Custom powder coating"]
+    hardware: ["E-GE custom hardware or Sobinco hardware", "C-groove exposed hinge configuration", "Shear-bonded corner injection"],
+    colors: ["Powder coating", "Project-specific coating"]
   },
   {
-    id: "e105n",
-    title: "Guanyan E105N Passive Inward-Opening Window",
-    tag: "E Series / Passive",
-    summary: "A narrow-frame passive inward-opening window balancing thermal comfort with the E-series slim visual language.",
-    image: "assets/clean/clean-e105n-passive-window.jpg",
-    categories: ["window", "passive"],
-    catalogue: localCatalogues.e105n,
-    features: ["RT saw-tooth thermal strip engagement", "Quiet luxury positioning", "Premium inward-opening hardware"],
+    id: "jingran-125-lift-slide",
+    title: "Jingran 125 Lift-Slide Door",
+    tag: "Jingran 125 / Sliding",
+    summary: "A 125 mm lift-slide door system for large residential openings with high air tightness and heavy sash capacity.",
+    image: "assets/product-samples/jingran-125-lift-slide-door.webp",
+    categories: ["sliding"],
+    catalogue: null,
+    features: ["Class 8 air permeability under GB/T 31433-2015", "Class 9 wind-load resistance under GB/T 31433-2015", "Up to 440 kg single sash with Sobinco hardware"],
     details: [
-      ["Opening type", "Passive inward-opening window"],
-      ["Profile note", "E105N narrow-frame passive platform"],
-      ["Best for", "High-end homes that need passive performance with a lighter profile expression"]
+      ["Opening type", "Lift-slide door"],
+      ["Sample corner", "Jingran 125 lift-slide door section sample"],
+      ["Best for", "Wide panoramic openings, villas, terraces and indoor-outdoor residential spaces"]
     ],
     specs: [
-      ["System depth", "105 mm class"],
-      ["Variant", "Narrow-frame E105N"],
-      ["Comfort focus", "Thermal and acoustic performance for premium homes"]
+      ["System depth", "125 mm"],
+      ["Sash depth", "55 mm"],
+      ["Maximum sash weight", "E-GE custom hardware: 400 kg single sash / Sobinco hardware: 440 kg single sash"],
+      ["Sash height range", "E-GE custom hardware: 1600-3500 mm / Sobinco: 1200-3500 mm"],
+      ["Sash width range", "E-GE custom hardware: 730-3000 mm single sash / Sobinco: 750-3700 mm single sash"],
+      ["Frame face width", "51.5 mm"],
+      ["Sash face width", "99 mm"],
+      ["Watertightness", "Class 5 under GB/T 31433-2015"]
     ],
-    hardware: ["Premium inward-opening hardware", "Multi-point locking", "Thermal strip and sealing package"],
-    colors: ["Matte black", "Stone grey", "Warm white", "Project-specific coating"]
-  },
-  {
-    id: "e120n",
-    title: "Guanyan E120N Outward-Opening Window with Screen",
-    tag: "E Series / Screen Integrated",
-    summary: "A narrow-frame outward-opening window and screen integrated system for stronger ventilation without visual heaviness.",
-    image: "assets/clean/clean-e120n-window-screen.jpg",
-    categories: ["window", "screen"],
-    catalogue: localCatalogues.e120n,
-    features: ["Integrated outward screen system", "Slimline frame language", "Stainless steel T-connection reinforcement"],
-    details: [
-      ["Opening type", "Outward-opening window with integrated screen"],
-      ["Series options", "E120N narrow-frame and E120W wide-frame planning variants"],
-      ["Best for", "Projects seeking screen integration with a slim E-series appearance"]
-    ],
-    specs: [
-      ["System depth", "120 mm class"],
-      ["Variant", "E120N narrow-frame with E120W planning option"],
-      ["Screen", "Integrated outward-opening screen package"]
-    ],
-    hardware: ["Outward-opening hardware", "Safety stay package", "Reinforced slim T-connection"],
-    colors: ["Black", "Graphite grey", "Warm white", "Project-specific coating"]
-  },
-  {
-    id: "jiran150",
-    title: "Jingran 150 Full-View Sliding Door",
-    tag: "Jingran / Panoramic Sliding",
-    summary: "A full-view sliding door system for broad openings, quiet movement and a panoramic indoor-outdoor experience.",
-    image: "assets/clean/clean-jiran150-sliding-door.jpg",
-    categories: ["door", "sliding"],
-    catalogue: localCatalogues.jiran150,
-    features: ["20 mm central hook edge", "Up to 700 kg opening load", "32 mm or 44 mm glass options"],
-    details: [
-      ["Opening type", "Full-view sliding door"],
-      ["Structure", "Full-wrap sliding structure with dual drainage channels"],
-      ["Best for", "Large villas, terrace openings and panoramic living spaces"]
-    ],
-    specs: [
-      ["System depth", "150 mm class"],
-      ["Glass thickness", "32 mm / 44 mm options"],
-      ["Opening load", "Up to 700 kg planning load"]
-    ],
-    hardware: ["V-shaped silent rollers", "Multi-point locking mechanism", "Dual drainage lower frame"],
-    colors: ["Black", "Bronze grey", "Stone grey", "Custom decorative lower cover"]
+    hardware: ["E-GE custom lift-slide hardware or Sobinco hardware", "Concealed fitting system", "Shear-bonded corner injection"],
+    colors: ["Powder coating", "Anodizing", "Project-specific coating"]
   }
 ];
 
@@ -312,6 +166,26 @@ function createColorSwatches(colors) {
   return wrap;
 }
 
+function createSampleGallery(samples = []) {
+  if (!samples.length) return null;
+
+  const gallery = createElement("div", "sample-gallery");
+  samples.forEach((sample) => {
+    const figure = document.createElement("figure");
+    const sampleImage = document.createElement("img");
+    sampleImage.src = sample.image;
+    sampleImage.alt = `${sample.label} for ${sample.title || "E-GE product"}`;
+    sampleImage.loading = "lazy";
+
+    const caption = document.createElement("figcaption");
+    caption.textContent = sample.label;
+    figure.append(sampleImage, caption);
+    gallery.append(figure);
+  });
+
+  return gallery;
+}
+
 function findRowValue(rows, labels) {
   const match = rows.find(([label]) => labels.includes(label));
   return match ? match[1] : "";
@@ -348,9 +222,6 @@ function createProductCard(product) {
 
 function productMatchesFilter(product, filter) {
   if (filter === "all") return true;
-  if (filter === "other") {
-    return product.categories.includes("passive") || product.categories.includes("screen");
-  }
   return product.categories.includes(filter);
 }
 
@@ -422,9 +293,13 @@ function openProductDialog(productId) {
   const product = products.find((item) => item.id === productId);
   if (!product || !dialog || !dialogBody) return;
 
+  const media = createElement("div", "dialog-media");
   const image = document.createElement("img");
   image.src = product.image;
   image.alt = `${product.title} product image`;
+  const sampleGallery = createSampleGallery(product.samples);
+  media.append(image);
+  if (sampleGallery) media.append(sampleGallery);
 
   const copy = createElement("div", "dialog-copy");
   copy.append(
@@ -440,17 +315,19 @@ function openProductDialog(productId) {
     detailList.append(item);
   });
 
-  const catalogue = createElement("a", "button secondary dark-text", "Download technical PDF");
-  catalogue.href = product.catalogue;
-  catalogue.target = "_blank";
-  catalogue.rel = "noopener";
-
   const quote = createElement("a", "button primary", "Request quotation");
   quote.href = "#contact";
   quote.addEventListener("click", () => closeDialog(dialog));
 
   const actions = createElement("div", "dialog-actions");
-  actions.append(quote, catalogue);
+  actions.append(quote);
+  if (product.catalogue) {
+    const catalogue = createElement("a", "button secondary dark-text", "Download technical PDF");
+    catalogue.href = product.catalogue;
+    catalogue.target = "_blank";
+    catalogue.rel = "noopener";
+    actions.append(catalogue);
+  }
 
   copy.append(
     createElement("h3", "", "Applications"),
@@ -465,7 +342,7 @@ function openProductDialog(productId) {
     createColorSwatches(product.colors),
     actions
   );
-  dialogBody.replaceChildren(image, copy);
+  dialogBody.replaceChildren(media, copy);
 
   if (typeof dialog.showModal === "function") {
     dialog.showModal();
