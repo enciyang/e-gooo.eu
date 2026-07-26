@@ -2168,8 +2168,8 @@ body {
 }
 
 .site-header {
-  min-height: 82px;
-  padding: 14px clamp(22px, 4vw, 64px);
+  min-height: 96px;
+  padding: 18px clamp(22px, 4vw, 72px);
   border-bottom-color: rgba(29, 36, 33, 0.08);
   box-shadow: none;
 }
@@ -2191,15 +2191,16 @@ body {
 }
 
 .site-nav {
-  gap: clamp(18px, 2.6vw, 34px);
+  gap: clamp(30px, 3.8vw, 64px);
   color: rgba(29, 36, 33, 0.74);
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
+  font-size: clamp(1rem, 1.05vw, 1.12rem);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .nav-cta {
   border-radius: 2px;
+  padding: 13px 24px !important;
 }
 
 .hero {
@@ -2816,9 +2817,12 @@ body {
 
 @media (max-width: 1120px) {
   .site-nav {
-    top: 78px;
+    top: 92px;
+    gap: 10px 24px;
+    padding: 22px;
     color: var(--ink) !important;
     background: rgba(255, 255, 255, 0.96);
+    font-size: 1rem;
   }
 
   .site-header.is-open {
@@ -2834,6 +2838,11 @@ body {
   .site-header {
     min-height: 76px;
     padding: 10px 20px;
+  }
+
+  .site-nav {
+    top: 76px;
+    font-size: 0.94rem;
   }
 
   .hero-tagline {
