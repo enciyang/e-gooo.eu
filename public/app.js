@@ -122,6 +122,7 @@ const siteNav = document.querySelector("[data-site-nav]");
 const leadForms = document.querySelectorAll("[data-lead-form]");
 const heroSlides = Array.from(document.querySelectorAll("[data-hero-slide]"));
 const heroControls = document.querySelector("[data-hero-controls]");
+const validFilters = new Set(["all", "window", "door", "sliding"]);
 let activeHeroIndex = 0;
 
 function createElement(tag, className, text) {
@@ -240,6 +241,29 @@ function renderProducts(filter = "all") {
   const filtered = products.filter((product) => productMatchesFilter(product, filter));
 
   grid.replaceChildren(...filtered.map(createProductCard));
+}
+
+function getInitialProductFilter() {
+  const params = new URLSearchParams(window.location.search);
+  const requestedFilter = params.get("filter") || "all";
+  return validFilters.has(requestedFilter) ? requestedFilter : "all";
+}
+
+function applyProductFilter(filter = "all", updateUrl = false) {
+  const nextFilter = validFilters.has(filter) ? filter : "all";
+  setActiveFilter(nextFilter);
+  renderProducts(nextFilter);
+
+  if (!updateUrl || !grid) return;
+
+  const nextUrl = new URL(window.location.href);
+  if (nextFilter === "all") {
+    nextUrl.searchParams.delete("filter");
+  } else {
+    nextUrl.searchParams.set("filter", nextFilter);
+  }
+  nextUrl.hash = "product-list";
+  window.history.replaceState({}, "", nextUrl);
 }
 
 function renderComparisonTable() {
@@ -415,17 +439,13 @@ function initHeroCarousel() {
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const filter = button.dataset.filter;
-    setActiveFilter(filter);
-    renderProducts(filter);
+    applyProductFilter(button.dataset.filter, true);
   });
 });
 
 familyLinks.forEach((link) => {
   link.addEventListener("click", () => {
-    const filter = link.dataset.familyFilter || "all";
-    setActiveFilter(filter);
-    renderProducts(filter);
+    applyProductFilter(link.dataset.familyFilter || "all", true);
   });
 });
 
@@ -495,6 +515,6 @@ leadForms.forEach((form) => {
   });
 });
 
-renderProducts();
+applyProductFilter(getInitialProductFilter());
 renderComparisonTable();
 initHeroCarousel();
