@@ -9,7 +9,7 @@ const products = [
     summary: "A 96 mm inward-opening window system with strong air tightness, wind-load resistance and verified sample-corner detailing.",
     image: "assets/product-samples/e-ultra-96-inward-window.webp",
     categories: ["window"],
-    catalogue: null,
+    catalogue: "assets/catalogues/guanyan-96-passive-window-manual.pdf",
     features: ["38 dB acoustic index under GB/T 8485-2008", "Class 8 air permeability under GB/T 7106-2019", "Class 9 wind-load resistance under GB/T 7106-2019"],
     details: [
       ["Opening type", "Inward-opening window"],
