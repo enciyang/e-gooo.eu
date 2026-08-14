@@ -450,7 +450,7 @@ function createProductCard(product) {
 
   const actions = createElement("div", "product-actions");
   const catalogue = createElement("a", "text-button", product.catalogue ? "Open product manual" : "Request product information");
-  catalogue.href = product.catalogue || "#contact";
+  catalogue.href = product.catalogue || "cooperation.html";
   if (product.catalogue) {
     catalogue.target = "_blank";
     catalogue.rel = "noopener";
@@ -580,7 +580,7 @@ function openProductDialog(productId) {
   });
 
   const quote = createElement("a", "button primary", "Request quotation");
-  quote.href = "#contact";
+  quote.href = "cooperation.html";
   quote.addEventListener("click", () => closeDialog(dialog));
 
   const actions = createElement("div", "dialog-actions");
