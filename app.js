@@ -3,6 +3,28 @@ const inquiryRecipient = "export@e-ge.cn";
 
 const products = [
   {
+    id: "guanyan-s76-three-in-one-system",
+    title: "Guanyan S76 Three-in-One System",
+    tag: "Window + Door / S76",
+    summary: "A standard residential platform covering inward windows, outward windows, inward swing doors and outward swing doors.",
+    image: null,
+    categories: ["window", "door"],
+    catalogue: "assets/catalogues/ege-s76-three-in-one-manual.pdf",
+    features: ["Three-in-one residential system", "Window and swing-door applications", "Manual for project comparison"],
+    details: [
+      ["Opening types", "Window and hinged door"],
+      ["System family", "Guanyan S76"],
+      ["Best for", "Residential projects requiring one coordinated window and door platform"]
+    ],
+    specs: [
+      ["System family", "Guanyan S76"],
+      ["Application", "Window + door"],
+      ["Documentation", "Product manual"]
+    ],
+    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    colors: ["Powder coating", "Project-specific coating"]
+  },
+  {
     id: "e-ultra-96-inward-window",
     title: "E-ultra 96 Inward-Opening Window",
     tag: "E Ultra 96 / Window",
@@ -20,8 +42,6 @@ const products = [
       ["System depth", "96 mm"],
       ["Sash depth", "105 mm"],
       ["Maximum sash weight", "E-GOOO custom hardware: 100 kg / Sobinco hardware: 200 kg"],
-      ["Sash height range", "E-GOOO custom hardware: 780-1800 mm / Sobinco: 520-3000 mm depending on sash width"],
-      ["Sash width range", "E-GOOO custom hardware: 440-1000 mm / Sobinco: 440-1700 mm"],
       ["Frame face width", "55 mm"],
       ["Sash face width", "72 mm"],
       ["Watertightness", "Class 6 under GB/T 7106-2019"]
@@ -53,8 +73,6 @@ const products = [
       ["System depth", "96 mm"],
       ["Sash depth", "106 mm"],
       ["Maximum sash weight", "E-GOOO custom hardware: 150 kg / Sobinco hardware: 160 kg"],
-      ["Sash height range", "E-GOOO custom hardware: 650-3000 mm / Sobinco: 1800-3000 mm"],
-      ["Sash width range", "E-GOOO custom hardware: 650-1000 mm / Sobinco: 600-1200 mm"],
       ["Frame face width", "55 mm"],
       ["Sash face width", "107 mm"],
       ["Application", "Balcony / terrace door"]
@@ -80,14 +98,232 @@ const products = [
       ["System depth", "125 mm"],
       ["Sash depth", "55 mm"],
       ["Maximum sash weight", "E-GOOO custom hardware: 400 kg single sash / Sobinco hardware: 440 kg single sash"],
-      ["Sash height range", "E-GOOO custom hardware: 1600-3500 mm / Sobinco: 1200-3500 mm"],
-      ["Sash width range", "E-GOOO custom hardware: 730-3000 mm single sash / Sobinco: 750-3700 mm single sash"],
       ["Frame face width", "51.5 mm"],
       ["Sash face width", "99 mm"],
       ["Watertightness", "Class 5 under GB/T 31433-2015"]
     ],
     hardware: ["E-GOOO custom lift-slide hardware or Sobinco hardware", "Concealed fitting system", "Shear-bonded corner injection"],
     colors: ["Powder coating", "Anodizing", "Project-specific coating"]
+  },
+  {
+    id: "guanyan-e85-inward-window",
+    title: "Guanyan E85 Inward-Opening Window",
+    tag: "Window / E85",
+    summary: "Compact inward-opening window system sample and technical manual for project review.",
+    image: "assets/catalogue-samples/guanyan-e85-inward-window.jpg",
+    categories: ["window"],
+    catalogue: "assets/catalogues/guanyan-e85-inward-window-manual.pdf",
+    features: ["Compact inward-opening configuration", "Sample-corner image for technical review", "Manual for residential and project specification"],
+    details: [
+      ["Opening type", "Inward-opening window"],
+      ["Sample corner", "Guanyan E85 inward-opening window sample"],
+      ["Best for", "Residential projects, renovation work and compact high-performance openings"]
+    ],
+    specs: [
+      ["System family", "Guanyan E85"],
+      ["Opening type", "Inward-opening"],
+      ["Documentation", "Product manual and sample-corner image"]
+    ],
+    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    colors: ["Powder coating", "Project-specific coating"]
+  },
+  {
+    id: "guanyan-e85-outward-window",
+    title: "Guanyan E85 Outward-Opening Window",
+    tag: "Window / E85",
+    summary: "Outward-opening window system sample and technical manual for residential applications.",
+    image: "assets/catalogue-samples/guanyan-e85-outward-window.jpg",
+    categories: ["window"],
+    catalogue: "assets/catalogues/guanyan-e85-outward-window-manual.pdf",
+    features: ["Outward-opening window configuration", "Sample-corner image for technical review", "Manual for residential applications"],
+    details: [
+      ["Opening type", "Outward-opening window"],
+      ["Sample corner", "Guanyan E85 outward-opening window sample"],
+      ["Best for", "Residential projects that require outward-opening operation"]
+    ],
+    specs: [
+      ["System family", "Guanyan E85"],
+      ["Opening type", "Outward-opening"],
+      ["Documentation", "Product manual and sample-corner image"]
+    ],
+    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    colors: ["Powder coating", "Project-specific coating"]
+  },
+  {
+    id: "guanyan-96-passive-window",
+    title: "Guanyan 96 Passive Window",
+    tag: "Window / Passive",
+    summary: "Passive window catalogue for low-energy residential and project envelope design.",
+    image: "assets/product-samples/e-ultra-96-inward-window.webp",
+    categories: ["window"],
+    catalogue: "assets/catalogues/guanyan-96-passive-window-manual.pdf",
+    features: ["Passive window system family", "Low-energy building applications", "Sample-corner detailing for project comparison"],
+    details: [
+      ["Opening type", "Passive inward-opening window"],
+      ["Sample corner", "Guanyan 96 passive window sample"],
+      ["Best for", "Low-energy residential developments and project envelope design"]
+    ],
+    specs: [
+      ["System family", "Guanyan 96"],
+      ["Application", "Passive and low-energy projects"],
+      ["Documentation", "Product manual and system image"]
+    ],
+    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    colors: ["Powder coating", "Project-specific coating"]
+  },
+  {
+    id: "guanyan-e105-passive-inward-window",
+    title: "Guanyan E105 Passive Inward-Opening Window",
+    tag: "Window / Passive",
+    summary: "High-performance passive window system with sample image and technical manual.",
+    image: "assets/catalogue-samples/guanyan-e105-inward-window.jpg",
+    categories: ["window"],
+    catalogue: "assets/catalogues/guanyan-e105-passive-inward-window-manual.pdf",
+    features: ["Passive inward-opening window", "High-performance residential envelope applications", "Manual and sample image for technical review"],
+    details: [
+      ["Opening type", "Passive inward-opening window"],
+      ["Sample corner", "Guanyan E105 passive inward-opening window sample"],
+      ["Best for", "Projects that prioritize envelope performance and acoustic comfort"]
+    ],
+    specs: [
+      ["System family", "Guanyan E105"],
+      ["Application", "Passive and low-energy projects"],
+      ["Documentation", "Product manual and sample-corner image"]
+    ],
+    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    colors: ["Powder coating", "Project-specific coating"]
+  },
+  {
+    id: "guanyan-s105-passive-inward-window",
+    title: "Guanyan S105 Passive Inward-Opening Window",
+    tag: "Window / Passive",
+    summary: "S105 passive inward-opening window sample and product manual for project comparison.",
+    image: "assets/catalogue-samples/guanyan-s105-passive-inward-window.jpg",
+    categories: ["window"],
+    catalogue: "assets/catalogues/guanyan-s105-passive-inward-window-manual.pdf",
+    features: ["S105 passive inward-opening window", "Sample image for system comparison", "Manual for low-energy project review"],
+    details: [
+      ["Opening type", "Passive inward-opening window"],
+      ["Sample corner", "Guanyan S105 passive inward-opening window sample"],
+      ["Best for", "Passive and low-energy residential envelope projects"]
+    ],
+    specs: [
+      ["System family", "Guanyan S105"],
+      ["Application", "Passive and low-energy projects"],
+      ["Documentation", "Product manual and sample-corner image"]
+    ],
+    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    colors: ["Powder coating", "Project-specific coating"]
+  },
+  {
+    id: "guanyan-e120-outward-window-screen",
+    title: "Guanyan E120 Outward Window with Screen",
+    tag: "Window / Screen",
+    summary: "Integrated outward-opening window and screen system with catalogue documentation.",
+    image: "assets/catalogue-samples/guanyan-e120-outward-window-screen.jpg",
+    categories: ["window"],
+    catalogue: "assets/catalogues/guanyan-e120-outward-window-screen-manual.pdf",
+    features: ["Outward-opening window with integrated screen", "Catalogue documentation for project communication", "Sample image for review"],
+    details: [
+      ["Opening type", "Outward-opening window with screen"],
+      ["Sample corner", "Guanyan E120 outward window with screen sample"],
+      ["Best for", "Residential projects requiring window-and-screen integration"]
+    ],
+    specs: [
+      ["System family", "Guanyan E120"],
+      ["Application", "Window and screen integration"],
+      ["Documentation", "Product manual and sample-corner image"]
+    ],
+    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    colors: ["Powder coating", "Project-specific coating"]
+  },
+  {
+    id: "guanyan-s120-outward-window-screen",
+    title: "Guanyan S120 Outward Window with Screen",
+    tag: "Window / Screen",
+    summary: "S120 outward-opening window and screen sample image for system comparison.",
+    image: "assets/catalogue-samples/guanyan-s120-outward-window-screen.jpg",
+    categories: ["window"],
+    catalogue: "assets/catalogues/ege-s120-window-screen-manual.pdf",
+    features: ["Outward-opening window with integrated screen", "S120 system family", "Manual and sample image for system comparison"],
+    details: [
+      ["Opening type", "Outward-opening window with screen"],
+      ["Sample corner", "Guanyan S120 outward window with screen sample"],
+      ["Best for", "Residential openings that need integrated screen functionality"]
+    ],
+    specs: [
+      ["System family", "Guanyan S120"],
+      ["Application", "Window and screen integration"],
+      ["Documentation", "Product manual and sample-corner image"]
+    ],
+    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    colors: ["Powder coating", "Project-specific coating"]
+  },
+  {
+    id: "guanyan-s120-outward-door-screen",
+    title: "Guanyan S120 Outward Door with Screen",
+    tag: "Door / Screen",
+    summary: "Integrated outward-opening door and screen product system for balcony and terrace use.",
+    image: "assets/catalogue-samples/guanyan-s120-outward-door-screen.jpg",
+    categories: ["door"],
+    catalogue: "assets/catalogues/guanyan-s120-outward-door-screen-manual.pdf",
+    features: ["Outward-opening door and screen system", "Balcony and terrace applications", "Manual and sample image for technical communication"],
+    details: [
+      ["Opening type", "Outward-opening door with screen"],
+      ["Sample corner", "Guanyan S120 outward door with screen sample"],
+      ["Best for", "Balconies, terraces and private residential openings"]
+    ],
+    specs: [
+      ["System family", "Guanyan S120"],
+      ["Application", "Door and screen integration"],
+      ["Documentation", "Product manual and sample-corner image"]
+    ],
+    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    colors: ["Powder coating", "Project-specific coating"]
+  },
+  {
+    id: "guanyan-150-panoramic-sliding-window",
+    title: "Guanyan 150 Panoramic Sliding Window",
+    tag: "Sliding / 150",
+    summary: "Panoramic sliding system catalogue for wide openings and view-focused projects.",
+    image: "assets/catalogue-samples/jingyan-150-panoramic-sliding.jpg",
+    categories: ["sliding"],
+    catalogue: "assets/catalogues/guanyan-150-panoramic-sliding-window-manual.pdf",
+    features: ["Panoramic sliding window system", "Wide-opening project applications", "Manual for view-focused project selection"],
+    details: [
+      ["Opening type", "Panoramic sliding window"],
+      ["Sample corner", "Guanyan 150 panoramic sliding sample"],
+      ["Best for", "Large openings and view-focused residential projects"]
+    ],
+    specs: [
+      ["System family", "Guanyan 150"],
+      ["Application", "Panoramic sliding openings"],
+      ["Documentation", "Product manual and sample image"]
+    ],
+    hardware: ["Project-specific sliding hardware configuration", "Technical manual available for review"],
+    colors: ["Powder coating", "Project-specific coating"]
+  },
+  {
+    id: "jingran-150-panoramic-sliding-window",
+    title: "Jingran 150 Panoramic Sliding Window",
+    tag: "Sliding / 150",
+    summary: "Jingran panoramic sliding system manual and sample image for large residential openings.",
+    image: "assets/catalogue-samples/jingyan-150-panoramic-sliding.jpg",
+    categories: ["sliding"],
+    catalogue: "assets/catalogues/jingran-150-panoramic-sliding-window-manual.pdf",
+    features: ["Panoramic sliding system", "Wide-opening residential applications", "Manual for view-focused project selection"],
+    details: [
+      ["Opening type", "Panoramic sliding window"],
+      ["Sample corner", "Jingran 150 panoramic sliding sample"],
+      ["Best for", "Large residential openings, terraces and view-focused projects"]
+    ],
+    specs: [
+      ["System family", "Jingran 150"],
+      ["Application", "Panoramic sliding openings"],
+      ["Documentation", "Product manual and sample image"]
+    ],
+    hardware: ["Project-specific sliding hardware configuration", "Technical manual available for review"],
+    colors: ["Powder coating", "Project-specific coating"]
   }
 ];
 
@@ -193,31 +429,35 @@ function findRowValue(rows, labels) {
 }
 
 function createProductCard(product) {
-  const card = createElement("article", "product-card");
+  const card = createElement("article", "product-card product-portfolio-card");
   card.dataset.productId = product.id;
-  const image = document.createElement("img");
-  image.src = product.image;
-  image.alt = `${product.title} catalogue scene`;
-  image.loading = "lazy";
+  const media = product.image ? document.createElement("img") : createElement("div", "product-image-placeholder");
+  if (product.image) {
+    media.src = product.image;
+    media.alt = `${product.title} sample image`;
+    media.loading = "lazy";
+  } else {
+    media.setAttribute("role", "img");
+    media.setAttribute("aria-label", `${product.title} image pending`);
+  }
 
   const body = createElement("div", "product-body");
   body.append(
     createElement("span", "product-tag", product.tag),
     createElement("h3", "", product.title),
-    createElement("p", "", product.summary),
-    createFeatureList(product.features)
+    createElement("p", "", product.summary)
   );
 
   const actions = createElement("div", "product-actions");
-  const detailsButton = createElement("button", "text-button", "View details");
-  detailsButton.type = "button";
-  detailsButton.dataset.productDetails = product.id;
-  detailsButton.addEventListener("click", () => openProductDialog(product.id));
-  const inquiry = createElement("a", "text-button", "Request quotation");
-  inquiry.href = "#contact";
-  actions.append(detailsButton, inquiry);
+  const catalogue = createElement("a", "text-button", product.catalogue ? "Open product manual" : "Request product information");
+  catalogue.href = product.catalogue || "#contact";
+  if (product.catalogue) {
+    catalogue.target = "_blank";
+    catalogue.rel = "noopener";
+  }
+  actions.append(catalogue);
   body.append(actions);
-  card.append(image, body);
+  card.append(media, body);
   return card;
 }
 
