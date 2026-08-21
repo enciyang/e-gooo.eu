@@ -29,7 +29,7 @@ const products = [
     title: "E-ultra 96 Inward-Opening Window",
     tag: "E Ultra 96 / Window",
     summary: "A 96 mm inward-opening window system with strong air tightness, wind-load resistance and verified sample-corner detailing.",
-    image: "assets/product-samples/e-ultra-96-inward-window.webp",
+    image: "assets/product-samples/e-ultra-96-inward-window-featured.png",
     categories: ["window"],
     catalogue: "assets/catalogues/guanyan-96-passive-window-manual.pdf",
     features: ["38 dB acoustic index under GB/T 8485-2008", "Class 8 air permeability under GB/T 7106-2019", "Class 9 wind-load resistance under GB/T 7106-2019"],
@@ -154,7 +154,7 @@ const products = [
     title: "Guanyan 96 Passive Window",
     tag: "Window / Passive",
     summary: "Passive window catalogue for low-energy residential and project envelope design.",
-    image: "assets/product-samples/e-ultra-96-inward-window.webp",
+    image: "assets/product-samples/e-ultra-96-inward-window-featured.png",
     categories: ["window"],
     catalogue: "assets/catalogues/guanyan-96-passive-window-manual.pdf",
     features: ["Passive window system family", "Low-energy building applications", "Sample-corner detailing for project comparison"],
@@ -428,9 +428,146 @@ function findRowValue(rows, labels) {
   return match ? match[1] : "";
 }
 
-function createProductCard(product) {
-  const card = createElement("article", "product-card product-portfolio-card");
+function createProductVisual(product, className = "product-sheet-image") {
+  if (!product.image) {
+    const placeholder = createElement("div", `${className} product-sheet-placeholder`);
+    placeholder.setAttribute("role", "img");
+    placeholder.setAttribute("aria-label", `${product.title} engineering visual pending`);
+    placeholder.append(
+      createElement("span", "", "E-GOOO"),
+      createElement("strong", "", "SYSTEM SECTION")
+    );
+    return placeholder;
+  }
+
+  const image = document.createElement("img");
+  image.className = className;
+  image.src = product.image;
+  image.alt = `${product.title} product system visual`;
+  image.loading = "lazy";
+  return image;
+}
+
+function getProductOpening(product) {
+  return findRowValue(product.details, ["Opening type", "Opening types"])
+    || findRowValue(product.specs, ["Opening type", "Application"])
+    || product.tag;
+}
+
+function getProductSystemDepth(product) {
+  return findRowValue(product.specs, ["System depth"])
+    || findRowValue(product.specs, ["System family"])
+    || product.title.split(" ").slice(0, 2).join(" ");
+}
+
+function getProductVisibleWidth(product) {
+  return findRowValue(product.specs, ["Frame face width"])
+    || findRowValue(product.specs, ["Sash face width"])
+    || "Project-specific";
+}
+
+function getProductLoad(product) {
+  const raw = findRowValue(product.specs, ["Maximum sash weight"]) || "";
+  const matches = [...raw.matchAll(/(\d+)\s*kg/gi)].map((match) => Number(match[1]));
+  if (matches.length) return `≤ ${Math.max(...matches)} kg`;
+  if (product.categories.includes("sliding")) return "Project-specific";
+  return "By configuration";
+}
+
+function getProductOpeningRange(product) {
+  if (product.categories.includes("sliding")) return "Lift-slide";
+  const opening = getProductOpening(product).toLowerCase();
+  if (opening.includes("fixed")) return "Fixed";
+  return "90° / 180°";
+}
+
+function getConfigurationTags(product) {
+  if (product.categories.includes("sliding")) {
+    return ["LIFT-SLIDE", "LARGE OPENINGS", "PANORAMIC GLAZING"];
+  }
+  if (product.categories.includes("door")) {
+    return ["HINGED OPENING", "TERRACE ACCESS", "PROJECT HARDWARE"];
+  }
+  if (product.title.toLowerCase().includes("screen")) {
+    return ["OPENING WINDOW", "INTEGRATED SCREEN", "RESIDENTIAL USE"];
+  }
+  return ["INWARD-OPENING", "FIXED GLAZING", "LOW-ENERGY ENVELOPE"];
+}
+
+function createMetricStrip(product) {
+  const systemDepth = findRowValue(product.specs, ["System depth"]);
+  const systemFamily = findRowValue(product.specs, ["System family"]) || product.title.split(" ").slice(0, 2).join(" ");
+  const openingLabel = product.categories.includes("sliding") ? "OPENING MODE" : "OPENING ANGLES";
+  const metrics = [
+    [systemDepth ? "SYSTEM DEPTH" : "SYSTEM FAMILY", systemDepth || systemFamily],
+    ["VISIBLE WIDTH", getProductVisibleWidth(product)],
+    [openingLabel, getProductOpeningRange(product)],
+    ["SASH LOAD CAPACITY", getProductLoad(product)]
+  ];
+
+  const strip = createElement("div", "product-sheet-spec-strip");
+  metrics.forEach(([label, value]) => {
+    const item = createElement("div", "product-sheet-spec");
+    item.append(createElement("span", "", label), createElement("strong", "", value));
+    strip.append(item);
+  });
+  return strip;
+}
+
+function createTechnicalCards(product) {
+  const visibleWidth = getProductVisibleWidth(product);
+  const opening = getProductOpening(product);
+  const primaryImage = product.image;
+  const secondaryImage = product.samples?.[0]?.image || product.image;
+  const cards = [
+    {
+      kicker: "PROFILE ENGINEERING",
+      image: primaryImage,
+      title: "Multi-cavity profile logic",
+      copy: product.hardware?.[0] || "System profiles are configured around project-specific thermal, structural and opening requirements."
+    },
+    {
+      kicker: "CAD SECTION",
+      image: secondaryImage,
+      title: `${visibleWidth} standard visible width`,
+      copy: `The ${opening.toLowerCase()} configuration supports coordinated detailing for specification review and project communication.`
+    },
+    {
+      kicker: "PERFORMANCE LOGIC",
+      image: primaryImage,
+      title: product.features?.[0] || "Sealing and drainage architecture",
+      copy: product.features?.[1] || "Integrated sealing, glazing and drainage details help balance comfort, durability and long-term performance."
+    }
+  ];
+
+  const grid = createElement("div", "product-sheet-tech-grid");
+  cards.forEach((card) => {
+    const article = createElement("article", "product-sheet-tech-card");
+    const media = createElement("div", "product-sheet-tech-media");
+    if (card.image) {
+      const image = document.createElement("img");
+      image.src = card.image;
+      image.alt = `${product.title} ${card.kicker.toLowerCase()} visual`;
+      image.loading = "lazy";
+      media.append(image);
+    } else {
+      media.append(createProductVisual(product, "product-sheet-tech-placeholder"));
+    }
+    article.append(
+      createElement("span", "product-sheet-tech-kicker", card.kicker),
+      media,
+      createElement("h4", "", card.title),
+      createElement("p", "", card.copy)
+    );
+    grid.append(article);
+  });
+  return grid;
+}
+
+function createProductCard(product, isFeatured = false) {
+  const card = createElement("article", `product-card product-portfolio-card${isFeatured ? " product-card-featured" : ""}`);
   card.dataset.productId = product.id;
+  const mediaWrap = createElement("div", "product-card-media");
   const media = product.image ? document.createElement("img") : createElement("div", "product-image-placeholder");
   if (product.image) {
     media.src = product.image;
@@ -440,16 +577,31 @@ function createProductCard(product) {
     media.setAttribute("role", "img");
     media.setAttribute("aria-label", `${product.title} image pending`);
   }
+  mediaWrap.append(media);
 
   const body = createElement("div", "product-body");
+  const tag = createElement("span", "product-tag", isFeatured ? `Flagship / ${product.tag}` : product.tag);
   body.append(
-    createElement("span", "product-tag", product.tag),
+    tag,
     createElement("h3", "", product.title),
     createElement("p", "", product.summary)
   );
 
   const actions = createElement("div", "product-actions");
-  const catalogue = createElement("a", "text-button", product.catalogue ? "Open product manual" : "Request product information");
+  const detailButton = createElement("button", "text-button portfolio-link product-detail-trigger");
+  detailButton.type = "button";
+  detailButton.append(
+    createElement("span", "", "View specifications"),
+    createElement("span", "link-arrow", "→")
+  );
+  detailButton.addEventListener("click", () => openProductDialog(product.id));
+  actions.append(detailButton);
+
+  const catalogue = createElement("a", "text-button portfolio-link");
+  catalogue.append(
+    createElement("span", "", product.catalogue ? "Open product manual" : "Request product information"),
+    createElement("span", "link-arrow", "→")
+  );
   catalogue.href = product.catalogue || "cooperation.html";
   if (product.catalogue) {
     catalogue.target = "_blank";
@@ -457,7 +609,7 @@ function createProductCard(product) {
   }
   actions.append(catalogue);
   body.append(actions);
-  card.append(media, body);
+  card.append(mediaWrap, body);
   return card;
 }
 
@@ -479,8 +631,12 @@ function renderProducts(filter = "all") {
   if (!grid) return;
 
   const filtered = products.filter((product) => productMatchesFilter(product, filter));
+  const featuredIndex = filtered.findIndex((product) => product.image);
+  const ordered = featuredIndex > 0
+    ? [filtered[featuredIndex], ...filtered.slice(0, featuredIndex), ...filtered.slice(featuredIndex + 1)]
+    : filtered;
 
-  grid.replaceChildren(...filtered.map(createProductCard));
+  grid.replaceChildren(...ordered.map((product, index) => createProductCard(product, index === 0 && Boolean(product.image))));
 }
 
 function getInitialProductFilter() {
@@ -557,33 +713,40 @@ function openProductDialog(productId) {
   const product = products.find((item) => item.id === productId);
   if (!product || !dialog || !dialogBody) return;
 
-  const media = createElement("div", "dialog-media");
-  const image = document.createElement("img");
-  image.src = product.image;
-  image.alt = `${product.title} product image`;
-  const sampleGallery = createSampleGallery(product.samples);
-  media.append(image);
-  if (sampleGallery) media.append(sampleGallery);
-
-  const copy = createElement("div", "dialog-copy");
-  copy.append(
-    createElement("span", "product-tag", product.tag),
-    createElement("h2", "", product.title),
-    createElement("p", "", product.summary)
+  const sheet = createElement("article", "product-sheet");
+  const headerBar = createElement("header", "product-sheet-bar product-sheet-bar-top");
+  const logo = document.createElement("img");
+  logo.src = "assets/brand/e-gooo-logo-footer-transparent.png";
+  logo.alt = "E-GOOO Windows & Doors";
+  logo.className = "product-sheet-logo";
+  headerBar.append(
+    logo,
+    createElement("span", "", "HIGH-PERFORMANCE WINDOW SYSTEM")
   );
 
-  const detailList = createElement("ul", "detail-list info-cards");
-  product.details.forEach(([label, value]) => {
-    const item = createElement("li");
-    item.append(createElement("strong", "", label), createElement("p", "", value));
-    detailList.append(item);
-  });
+  const media = createElement("div", "product-sheet-hero-media");
+  media.append(createProductVisual(product));
+  const sampleGallery = createSampleGallery(product.samples);
+  if (sampleGallery) media.append(sampleGallery);
+
+  const badges = createElement("div", "product-sheet-badges");
+  getConfigurationTags(product).forEach((tag) => badges.append(createElement("span", "", tag)));
+
+  const copy = createElement("div", "product-sheet-copy");
+  copy.append(
+    createElement("span", "product-sheet-kicker", product.tag),
+    createElement("h2", "", product.title),
+    createElement("h3", "", "COMFORT, ENGINEERED."),
+    createElement("p", "", product.summary),
+    createElement("div", "product-sheet-divider"),
+    badges
+  );
 
   const quote = createElement("a", "button primary", "Request quotation");
   quote.href = "cooperation.html";
   quote.addEventListener("click", () => closeDialog(dialog));
 
-  const actions = createElement("div", "dialog-actions");
+  const actions = createElement("div", "product-sheet-actions");
   actions.append(quote);
   if (product.catalogue) {
     const catalogue = createElement("a", "button secondary dark-text", "Download technical PDF");
@@ -592,21 +755,38 @@ function openProductDialog(productId) {
     catalogue.rel = "noopener";
     actions.append(catalogue);
   }
+  copy.append(actions);
 
-  copy.append(
-    createElement("h3", "", "Applications"),
-    detailList,
-    createElement("h3", "", "Performance highlights"),
-    createFeatureList(product.features),
-    createElement("h3", "", "Technical specifications"),
-    createSpecTable(product.specs),
+  const hero = createElement("section", "product-sheet-hero");
+  hero.append(media, copy);
+
+  const technical = createElement("section", "product-sheet-technical");
+  technical.append(
+    createElement("span", "product-sheet-section-kicker", "TECHNICAL OVERVIEW"),
+    createElement("h3", "", "System details for project specification."),
+    createTechnicalCards(product)
+  );
+
+  const detailColumns = createElement("section", "product-sheet-detail-columns");
+  const specColumn = createElement("div", "product-sheet-detail-block");
+  specColumn.append(createElement("h3", "", "Technical specifications"), createSpecTable(product.specs));
+  const hardwareColumn = createElement("div", "product-sheet-detail-block");
+  hardwareColumn.append(
     createElement("h3", "", "Hardware and operation"),
     createFeatureList(product.hardware),
     createElement("h3", "", "Color and finish options"),
-    createColorSwatches(product.colors),
-    actions
+    createColorSwatches(product.colors)
   );
-  dialogBody.replaceChildren(media, copy);
+  detailColumns.append(specColumn, hardwareColumn);
+
+  const footerBar = createElement("footer", "product-sheet-bar product-sheet-bar-bottom");
+  footerBar.append(
+    createElement("span", "", "SYSTEM ENGINEERING • PROJECT CUSTOMISATION • CONTROLLED MANUFACTURING"),
+    createElement("strong", "", "E-GOOO | Where architecture breathes and life flows.")
+  );
+
+  sheet.append(headerBar, hero, createMetricStrip(product), technical, detailColumns, footerBar);
+  dialogBody.replaceChildren(sheet);
 
   if (typeof dialog.showModal === "function") {
     dialog.showModal();
