@@ -2917,6 +2917,44 @@ body {
   line-height: 1.7;
 }
 
+.sustainability-page .site-nav [aria-current="page"] {
+  color: var(--copper);
+}
+
+.sustainability-hero {
+  min-height: min(82svh, 820px);
+  align-items: center;
+  padding-top: 150px;
+  padding-bottom: 92px;
+}
+
+.sustainability-hero .page-hero-image {
+  object-position: center center;
+}
+
+.sustainability-hero .page-hero-shade {
+  background:
+    linear-gradient(90deg, rgba(7, 11, 9, 0.82), rgba(7, 11, 9, 0.48) 38%, rgba(7, 11, 9, 0.14) 72%, rgba(7, 11, 9, 0.04)),
+    linear-gradient(0deg, rgba(7, 11, 9, 0.48), rgba(7, 11, 9, 0.08) 56%, rgba(7, 11, 9, 0.22));
+}
+
+.sustainability-hero .page-hero-content {
+  max-width: 1120px;
+}
+
+.sustainability-hero h1 {
+  max-width: 620px;
+  color: #fff;
+  font-weight: 300 !important;
+  text-shadow: 0 18px 42px rgba(0, 0, 0, 0.42);
+}
+
+.sustainability-hero p {
+  max-width: 560px;
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
 .product-page-section {
   background: #fff;
 }
