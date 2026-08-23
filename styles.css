@@ -6004,6 +6004,114 @@ body .product-showcase-label {
   }
 }
 
+/* Definitive product tone sequence: first blue, second white, then repeat */
+.product-portfolio-card.product-card-tone-blue,
+.product-portfolio-card[data-tone="blue"] {
+  color: #fff !important;
+  background:
+    radial-gradient(circle at 72% 20%, rgba(255, 255, 255, 0.16), transparent 30%),
+    linear-gradient(135deg, #041246 0%, var(--brand-blue) 58%, #061a64 100%) !important;
+}
+
+.product-portfolio-card.product-card-tone-white,
+.product-portfolio-card[data-tone="white"] {
+  color: var(--ink) !important;
+  background: #fff !important;
+}
+
+.product-portfolio-card.product-card-tone-blue .product-body,
+.product-portfolio-card[data-tone="blue"] .product-body {
+  order: 1 !important;
+}
+
+.product-portfolio-card.product-card-tone-blue .product-card-media,
+.product-portfolio-card[data-tone="blue"] .product-card-media {
+  order: 2 !important;
+}
+
+.product-portfolio-card.product-card-tone-white .product-body,
+.product-portfolio-card[data-tone="white"] .product-body {
+  order: 2 !important;
+}
+
+.product-portfolio-card.product-card-tone-white .product-card-media,
+.product-portfolio-card[data-tone="white"] .product-card-media {
+  order: 1 !important;
+}
+
+.product-portfolio-card.product-card-tone-blue .product-tag,
+.product-portfolio-card[data-tone="blue"] .product-tag,
+.product-portfolio-card.product-card-tone-blue h3,
+.product-portfolio-card[data-tone="blue"] h3 {
+  color: #fff !important;
+}
+
+.product-portfolio-card.product-card-tone-blue p,
+.product-portfolio-card[data-tone="blue"] p {
+  color: rgba(255, 255, 255, 0.68) !important;
+}
+
+.product-portfolio-card.product-card-tone-white .product-tag,
+.product-portfolio-card[data-tone="white"] .product-tag,
+.product-portfolio-card.product-card-tone-white .portfolio-link,
+.product-portfolio-card[data-tone="white"] .portfolio-link,
+.product-portfolio-card.product-card-tone-white button.portfolio-link,
+.product-portfolio-card[data-tone="white"] button.portfolio-link {
+  color: var(--brand-blue) !important;
+}
+
+.product-portfolio-card.product-card-tone-white p,
+.product-portfolio-card[data-tone="white"] p {
+  color: rgba(29, 36, 33, 0.58) !important;
+}
+
+.product-portfolio-card.product-card-tone-blue .portfolio-link,
+.product-portfolio-card[data-tone="blue"] .portfolio-link,
+.product-portfolio-card.product-card-tone-blue button.portfolio-link,
+.product-portfolio-card[data-tone="blue"] button.portfolio-link {
+  color: #fff !important;
+}
+
+.product-portfolio-card.product-card-tone-blue .product-image-placeholder,
+.product-portfolio-card[data-tone="blue"] .product-image-placeholder {
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+.product-portfolio-card.product-card-tone-blue .product-image-placeholder::before,
+.product-portfolio-card.product-card-tone-blue .product-image-placeholder::after,
+.product-portfolio-card[data-tone="blue"] .product-image-placeholder::before,
+.product-portfolio-card[data-tone="blue"] .product-image-placeholder::after {
+  background: rgba(255, 255, 255, 0.16) !important;
+}
+
+.product-portfolio-card.product-card-tone-white .product-image-placeholder,
+.product-portfolio-card[data-tone="white"] .product-image-placeholder {
+  border-color: rgba(10, 50, 179, 0.14) !important;
+}
+
+.product-portfolio-card.product-card-tone-white .product-image-placeholder::before,
+.product-portfolio-card.product-card-tone-white .product-image-placeholder::after,
+.product-portfolio-card[data-tone="white"] .product-image-placeholder::before,
+.product-portfolio-card[data-tone="white"] .product-image-placeholder::after {
+  background: rgba(10, 50, 179, 0.18) !important;
+}
+
+@media (max-width: 1080px) {
+  .product-portfolio-card.product-card-tone-blue .product-body,
+  .product-portfolio-card.product-card-tone-white .product-body,
+  .product-portfolio-card[data-tone="blue"] .product-body,
+  .product-portfolio-card[data-tone="white"] .product-body {
+    order: 1 !important;
+  }
+
+  .product-portfolio-card.product-card-tone-blue .product-card-media,
+  .product-portfolio-card.product-card-tone-white .product-card-media,
+  .product-portfolio-card[data-tone="blue"] .product-card-media,
+  .product-portfolio-card[data-tone="white"] .product-card-media {
+    order: 2 !important;
+  }
+}
+
 /* Product detail specification sheet */
 .product-dialog {
   width: min(1280px, calc(100% - 28px));

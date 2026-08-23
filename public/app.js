@@ -565,9 +565,10 @@ function createTechnicalCards(product) {
 }
 
 function createProductCard(product, isFeatured = false, displayIndex = 0) {
-  const card = createElement("article", `product-card product-portfolio-card${isFeatured ? " product-card-featured" : ""}`);
+  const tone = displayIndex % 2 === 0 ? "blue" : "white";
+  const card = createElement("article", `product-card product-portfolio-card product-card-tone-${tone}${isFeatured ? " product-card-featured" : ""}`);
   card.dataset.productId = product.id;
-  card.dataset.tone = displayIndex % 2 === 0 ? "blue" : "white";
+  card.dataset.tone = tone;
   const mediaWrap = createElement("div", "product-card-media");
   const media = product.image ? document.createElement("img") : createElement("div", "product-image-placeholder");
   if (product.image) {
