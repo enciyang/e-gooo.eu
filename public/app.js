@@ -564,9 +564,10 @@ function createTechnicalCards(product) {
   return grid;
 }
 
-function createProductCard(product, isFeatured = false) {
+function createProductCard(product, isFeatured = false, displayIndex = 0) {
   const card = createElement("article", `product-card product-portfolio-card${isFeatured ? " product-card-featured" : ""}`);
   card.dataset.productId = product.id;
+  card.dataset.tone = displayIndex % 2 === 0 ? "blue" : "white";
   const mediaWrap = createElement("div", "product-card-media");
   const media = product.image ? document.createElement("img") : createElement("div", "product-image-placeholder");
   if (product.image) {
@@ -636,7 +637,7 @@ function renderProducts(filter = "all") {
     ? [filtered[featuredIndex], ...filtered.slice(0, featuredIndex), ...filtered.slice(featuredIndex + 1)]
     : filtered;
 
-  grid.replaceChildren(...ordered.map((product, index) => createProductCard(product, index === 0 && Boolean(product.image))));
+  grid.replaceChildren(...ordered.map((product, index) => createProductCard(product, index === 0 && Boolean(product.image), index)));
 }
 
 function getInitialProductFilter() {
