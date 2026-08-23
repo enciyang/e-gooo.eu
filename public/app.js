@@ -41,12 +41,12 @@ const products = [
     specs: [
       ["System depth", "96 mm"],
       ["Sash depth", "105 mm"],
-      ["Maximum sash weight", "E-GOOO custom hardware: 100 kg / Sobinco hardware: 200 kg"],
+      ["Maximum sash weight", "e-gooo custom hardware: 100 kg / Sobinco hardware: 200 kg"],
       ["Frame face width", "55 mm"],
       ["Sash face width", "72 mm"],
       ["Watertightness", "Class 6 under GB/T 7106-2019"]
     ],
-    hardware: ["E-GOOO custom hardware or Sobinco hardware", "Concealed fitting system with hidden hinges", "Shear-bonded corner injection"],
+    hardware: ["e-gooo custom hardware or Sobinco hardware", "Concealed fitting system with hidden hinges", "Shear-bonded corner injection"],
     colors: ["Powder coating", "Project-specific coating"]
   },
   {
@@ -63,7 +63,7 @@ const products = [
         image: "assets/product-samples/e-ultra-96-outward-door.webp"
       }
     ],
-    features: ["96 mm system depth", "Up to 150 kg sash with E-GOOO custom hardware", "Balcony and terrace door application"],
+    features: ["96 mm system depth", "Up to 150 kg sash with e-gooo custom hardware", "Balcony and terrace door application"],
     details: [
       ["Opening type", "Hinged door"],
       ["Sample corner", "E-ultra 96 inward and outward hinged door samples"],
@@ -72,12 +72,12 @@ const products = [
     specs: [
       ["System depth", "96 mm"],
       ["Sash depth", "106 mm"],
-      ["Maximum sash weight", "E-GOOO custom hardware: 150 kg / Sobinco hardware: 160 kg"],
+      ["Maximum sash weight", "e-gooo custom hardware: 150 kg / Sobinco hardware: 160 kg"],
       ["Frame face width", "55 mm"],
       ["Sash face width", "107 mm"],
       ["Application", "Balcony / terrace door"]
     ],
-    hardware: ["E-GOOO custom hardware or Sobinco hardware", "C-groove exposed hinge configuration", "Shear-bonded corner injection"],
+    hardware: ["e-gooo custom hardware or Sobinco hardware", "C-groove exposed hinge configuration", "Shear-bonded corner injection"],
     colors: ["Powder coating", "Project-specific coating"]
   },
   {
@@ -97,12 +97,12 @@ const products = [
     specs: [
       ["System depth", "125 mm"],
       ["Sash depth", "55 mm"],
-      ["Maximum sash weight", "E-GOOO custom hardware: 400 kg single sash / Sobinco hardware: 440 kg single sash"],
+      ["Maximum sash weight", "e-gooo custom hardware: 400 kg single sash / Sobinco hardware: 440 kg single sash"],
       ["Frame face width", "51.5 mm"],
       ["Sash face width", "99 mm"],
       ["Watertightness", "Class 5 under GB/T 31433-2015"]
     ],
-    hardware: ["E-GOOO custom lift-slide hardware or Sobinco hardware", "Concealed fitting system", "Shear-bonded corner injection"],
+    hardware: ["e-gooo custom lift-slide hardware or Sobinco hardware", "Concealed fitting system", "Shear-bonded corner injection"],
     colors: ["Powder coating", "Anodizing", "Project-specific coating"]
   },
   {
@@ -330,9 +330,9 @@ const products = [
 const mediaContent = {
   "brand-film": {
     label: "Brand Video",
-    title: "E-GOOO brand film area",
+    title: "e-gooo brand film area",
     image: "assets/clean/clean-sea-view-window.jpg",
-    copy: "A dedicated brand film can introduce E-GOOO's quiet-living positioning, product systems, design service and premium residential applications."
+    copy: "A dedicated brand film can introduce e-gooo's quiet-living positioning, product systems, design service and premium residential applications."
   },
   "process-film": {
     label: "Process Video",
@@ -411,7 +411,7 @@ function createSampleGallery(samples = []) {
     const figure = document.createElement("figure");
     const sampleImage = document.createElement("img");
     sampleImage.src = sample.image;
-    sampleImage.alt = `${sample.label} for ${sample.title || "E-GOOO product"}`;
+    sampleImage.alt = `${sample.label} for ${sample.title || "e-gooo product"}`;
     sampleImage.loading = "lazy";
 
     const caption = document.createElement("figcaption");
@@ -434,7 +434,7 @@ function createProductVisual(product, className = "product-sheet-image") {
     placeholder.setAttribute("role", "img");
     placeholder.setAttribute("aria-label", `${product.title} engineering visual pending`);
     placeholder.append(
-      createElement("span", "", "E-GOOO"),
+      createElement("span", "", "e-gooo"),
       createElement("strong", "", "SYSTEM SECTION")
     );
     return placeholder;
@@ -717,7 +717,7 @@ function openProductDialog(productId) {
   const headerBar = createElement("header", "product-sheet-bar product-sheet-bar-top");
   const logo = document.createElement("img");
   logo.src = "assets/brand/e-gooo-logo-footer-transparent.png";
-  logo.alt = "E-GOOO Windows & Doors";
+  logo.alt = "e-gooo Windows & Doors";
   logo.className = "product-sheet-logo";
   headerBar.append(
     logo,
@@ -782,7 +782,7 @@ function openProductDialog(productId) {
   const footerBar = createElement("footer", "product-sheet-bar product-sheet-bar-bottom");
   footerBar.append(
     createElement("span", "", "SYSTEM ENGINEERING • PROJECT CUSTOMISATION • CONTROLLED MANUFACTURING"),
-    createElement("strong", "", "E-GOOO | Where architecture breathes and life flows.")
+    createElement("strong", "", "e-gooo | Where architecture breathes and life flows.")
   );
 
   sheet.append(headerBar, hero, createMetricStrip(product), technical, detailColumns, footerBar);
@@ -923,7 +923,7 @@ leadForms.forEach((form) => {
     leads.push(lead);
     localStorage.setItem("ege-leads-v2", JSON.stringify(leads));
 
-    const subject = `${lead.type} from E-GOOO English website`;
+    const subject = `${lead.type} from e-gooo English website`;
     const body = Object.entries(lead)
       .map(([key, value]) => `${key}: ${value}`)
       .join("\n");
