@@ -1,27 +1,29 @@
 // Replace with the confirmed overseas sales mailbox before launch if needed.
 const inquiryRecipient = "export@e-ge.cn";
+const whatsappContactUrl = "https://wa.me/447751524710";
+const whatsappContactLabel = "Contact via WhatsApp";
+const productToneCycle = ["blue", "white", "deep"];
 
 const products = [
   {
     id: "guanyan-s76-three-in-one-system",
     title: "Guanyan S76 Three-in-One System",
-    tag: "Window + Door / S76",
-    summary: "A standard residential platform covering inward windows, outward windows, inward swing doors and outward swing doors.",
-    image: null,
-    categories: ["window", "door"],
-    catalogue: "assets/catalogues/ege-s76-three-in-one-manual.pdf",
-    features: ["Three-in-one residential system", "Window and swing-door applications", "Manual for project comparison"],
+    tag: "Window + Door + Sliding / S76",
+    summary: "A standard residential platform covering inward windows, outward windows, inward swing doors, outward swing doors and sliding applications.",
+    image: "assets/clean/clean-s76-system.jpg",
+    categories: ["window", "door", "sliding"],
+    features: ["Three-in-one residential system", "Window, swing-door and sliding applications", "Project support for system comparison"],
     details: [
-      ["Opening types", "Window and hinged door"],
+      ["Opening types", "Window, hinged door and sliding"],
       ["System family", "Guanyan S76"],
-      ["Best for", "Residential projects requiring one coordinated window and door platform"]
+      ["Best for", "Residential projects requiring one coordinated window, door and sliding platform"]
     ],
     specs: [
       ["System family", "Guanyan S76"],
-      ["Application", "Window + door"],
-      ["Documentation", "Product manual"]
+      ["Application", "Window + door + sliding"],
+      ["Documentation", "Contact us via WhatsApp for project details"]
     ],
-    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    hardware: ["Project-specific hardware configuration", "Technical support available via WhatsApp"],
     colors: ["Powder coating", "Project-specific coating"]
   },
   {
@@ -29,9 +31,8 @@ const products = [
     title: "E-ultra 96 Inward-Opening Window",
     tag: "E Ultra 96 / Window",
     summary: "A 96 mm inward-opening window system with strong air tightness, wind-load resistance and verified sample-corner detailing.",
-    image: "assets/product-samples/e-ultra-96-inward-window-featured.png",
+    image: "assets/product-samples/e85-product-transparent.png",
     categories: ["window"],
-    catalogue: "assets/catalogues/guanyan-96-passive-window-manual.pdf",
     features: ["38 dB acoustic index under GB/T 8485-2008", "Class 8 air permeability under GB/T 7106-2019", "Class 9 wind-load resistance under GB/T 7106-2019"],
     details: [
       ["Opening type", "Inward-opening window"],
@@ -54,13 +55,12 @@ const products = [
     title: "E-ultra 96 Hinged Door",
     tag: "E Ultra 96 / Door",
     summary: "A 96 mm hinged door system for balcony and terrace openings, supported by inward and outward sample-corner images.",
-    image: "assets/product-samples/e-ultra-96-inward-door.webp",
+    image: "assets/product-samples/e-ultra-96-inward-door-transparent.png",
     categories: ["door"],
-    catalogue: null,
     samples: [
       {
         label: "Outward-opening sample",
-        image: "assets/product-samples/e-ultra-96-outward-door.webp"
+        image: "assets/product-samples/e-ultra-96-outward-door-transparent.png"
       }
     ],
     features: ["96 mm system depth", "Up to 150 kg sash with e-gooo custom hardware", "Balcony and terrace door application"],
@@ -85,9 +85,8 @@ const products = [
     title: "Jingran 125 Lift-Slide Door",
     tag: "Jingran 125 / Sliding",
     summary: "A 125 mm lift-slide door system for large residential openings with high air tightness and heavy sash capacity.",
-    image: "assets/product-samples/jingran-125-lift-slide-door.webp",
+    image: "assets/product-samples/jingran-125-lift-slide-door-transparent.png",
     categories: ["sliding"],
-    catalogue: null,
     features: ["Class 8 air permeability under GB/T 31433-2015", "Class 9 wind-load resistance under GB/T 31433-2015", "Up to 440 kg single sash with Sobinco hardware"],
     details: [
       ["Opening type", "Lift-slide door"],
@@ -109,11 +108,10 @@ const products = [
     id: "guanyan-e85-inward-window",
     title: "Guanyan E85 Inward-Opening Window",
     tag: "Window / E85",
-    summary: "Compact inward-opening window system sample and technical manual for project review.",
-    image: "assets/catalogue-samples/guanyan-e85-inward-window.jpg",
+    summary: "Compact inward-opening window system sample and project information for review.",
+    image: "assets/product-samples/guanyan-e85-inward-window-transparent.png",
     categories: ["window"],
-    catalogue: "assets/catalogues/guanyan-e85-inward-window-manual.pdf",
-    features: ["Compact inward-opening configuration", "Sample-corner image for technical review", "Manual for residential and project specification"],
+    features: ["Compact inward-opening configuration", "Sample-corner image for technical review", "Project information available via WhatsApp"],
     details: [
       ["Opening type", "Inward-opening window"],
       ["Sample corner", "Guanyan E85 inward-opening window sample"],
@@ -122,20 +120,19 @@ const products = [
     specs: [
       ["System family", "Guanyan E85"],
       ["Opening type", "Inward-opening"],
-      ["Documentation", "Product manual and sample-corner image"]
+      ["Documentation", "Project details available via WhatsApp"]
     ],
-    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    hardware: ["Project-specific hardware configuration", "Technical support available via WhatsApp"],
     colors: ["Powder coating", "Project-specific coating"]
   },
   {
     id: "guanyan-e85-outward-window",
     title: "Guanyan E85 Outward-Opening Window",
     tag: "Window / E85",
-    summary: "Outward-opening window system sample and technical manual for residential applications.",
-    image: "assets/catalogue-samples/guanyan-e85-outward-window.jpg",
+    summary: "Outward-opening window system sample and project information for residential applications.",
+    image: "assets/product-samples/guanyan-e85-outward-window-transparent.png",
     categories: ["window"],
-    catalogue: "assets/catalogues/guanyan-e85-outward-window-manual.pdf",
-    features: ["Outward-opening window configuration", "Sample-corner image for technical review", "Manual for residential applications"],
+    features: ["Outward-opening window configuration", "Sample-corner image for technical review", "Project information available via WhatsApp"],
     details: [
       ["Opening type", "Outward-opening window"],
       ["Sample corner", "Guanyan E85 outward-opening window sample"],
@@ -144,19 +141,18 @@ const products = [
     specs: [
       ["System family", "Guanyan E85"],
       ["Opening type", "Outward-opening"],
-      ["Documentation", "Product manual and sample-corner image"]
+      ["Documentation", "Project details available via WhatsApp"]
     ],
-    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    hardware: ["Project-specific hardware configuration", "Technical support available via WhatsApp"],
     colors: ["Powder coating", "Project-specific coating"]
   },
   {
     id: "guanyan-96-passive-window",
     title: "Guanyan 96 Passive Window",
     tag: "Window / Passive",
-    summary: "Passive window catalogue for low-energy residential and project envelope design.",
-    image: "assets/product-samples/e-ultra-96-inward-window-featured.png",
+    summary: "Passive window information for low-energy residential and project envelope design.",
+    image: "assets/product-samples/e85-product-transparent.png",
     categories: ["window"],
-    catalogue: "assets/catalogues/guanyan-96-passive-window-manual.pdf",
     features: ["Passive window system family", "Low-energy building applications", "Sample-corner detailing for project comparison"],
     details: [
       ["Opening type", "Passive inward-opening window"],
@@ -166,20 +162,19 @@ const products = [
     specs: [
       ["System family", "Guanyan 96"],
       ["Application", "Passive and low-energy projects"],
-      ["Documentation", "Product manual and system image"]
+      ["Documentation", "Project details available via WhatsApp"]
     ],
-    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    hardware: ["Project-specific hardware configuration", "Technical support available via WhatsApp"],
     colors: ["Powder coating", "Project-specific coating"]
   },
   {
     id: "guanyan-e105-passive-inward-window",
     title: "Guanyan E105 Passive Inward-Opening Window",
     tag: "Window / Passive",
-    summary: "High-performance passive window system with sample image and technical manual.",
-    image: "assets/catalogue-samples/guanyan-e105-inward-window.jpg",
+    summary: "High-performance passive window system with sample image and project information.",
+    image: "assets/product-samples/guanyan-e105-inward-window-transparent.png",
     categories: ["window"],
-    catalogue: "assets/catalogues/guanyan-e105-passive-inward-window-manual.pdf",
-    features: ["Passive inward-opening window", "High-performance residential envelope applications", "Manual and sample image for technical review"],
+    features: ["Passive inward-opening window", "High-performance residential envelope applications", "Project information available via WhatsApp"],
     details: [
       ["Opening type", "Passive inward-opening window"],
       ["Sample corner", "Guanyan E105 passive inward-opening window sample"],
@@ -188,20 +183,19 @@ const products = [
     specs: [
       ["System family", "Guanyan E105"],
       ["Application", "Passive and low-energy projects"],
-      ["Documentation", "Product manual and sample-corner image"]
+      ["Documentation", "Project details available via WhatsApp"]
     ],
-    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    hardware: ["Project-specific hardware configuration", "Technical support available via WhatsApp"],
     colors: ["Powder coating", "Project-specific coating"]
   },
   {
     id: "guanyan-s105-passive-inward-window",
     title: "Guanyan S105 Passive Inward-Opening Window",
     tag: "Window / Passive",
-    summary: "S105 passive inward-opening window sample and product manual for project comparison.",
-    image: "assets/catalogue-samples/guanyan-s105-passive-inward-window.jpg",
+    summary: "S105 passive inward-opening window sample and project information for comparison.",
+    image: "assets/product-samples/guanyan-s105-passive-inward-window-transparent.png",
     categories: ["window"],
-    catalogue: "assets/catalogues/guanyan-s105-passive-inward-window-manual.pdf",
-    features: ["S105 passive inward-opening window", "Sample image for system comparison", "Manual for low-energy project review"],
+    features: ["S105 passive inward-opening window", "Sample image for system comparison", "Project information available via WhatsApp"],
     details: [
       ["Opening type", "Passive inward-opening window"],
       ["Sample corner", "Guanyan S105 passive inward-opening window sample"],
@@ -210,20 +204,19 @@ const products = [
     specs: [
       ["System family", "Guanyan S105"],
       ["Application", "Passive and low-energy projects"],
-      ["Documentation", "Product manual and sample-corner image"]
+      ["Documentation", "Project details available via WhatsApp"]
     ],
-    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    hardware: ["Project-specific hardware configuration", "Technical support available via WhatsApp"],
     colors: ["Powder coating", "Project-specific coating"]
   },
   {
     id: "guanyan-e120-outward-window-screen",
     title: "Guanyan E120 Outward Window with Screen",
     tag: "Window / Screen",
-    summary: "Integrated outward-opening window and screen system with catalogue documentation.",
-    image: "assets/catalogue-samples/guanyan-e120-outward-window-screen.jpg",
+    summary: "Integrated outward-opening window and screen system with project information.",
+    image: "assets/product-samples/guanyan-e120-outward-window-screen-transparent.png",
     categories: ["window"],
-    catalogue: "assets/catalogues/guanyan-e120-outward-window-screen-manual.pdf",
-    features: ["Outward-opening window with integrated screen", "Catalogue documentation for project communication", "Sample image for review"],
+    features: ["Outward-opening window with integrated screen", "Project information available via WhatsApp", "Sample image for review"],
     details: [
       ["Opening type", "Outward-opening window with screen"],
       ["Sample corner", "Guanyan E120 outward window with screen sample"],
@@ -232,9 +225,9 @@ const products = [
     specs: [
       ["System family", "Guanyan E120"],
       ["Application", "Window and screen integration"],
-      ["Documentation", "Product manual and sample-corner image"]
+      ["Documentation", "Project details available via WhatsApp"]
     ],
-    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    hardware: ["Project-specific hardware configuration", "Technical support available via WhatsApp"],
     colors: ["Powder coating", "Project-specific coating"]
   },
   {
@@ -242,10 +235,9 @@ const products = [
     title: "Guanyan S120 Outward Window with Screen",
     tag: "Window / Screen",
     summary: "S120 outward-opening window and screen sample image for system comparison.",
-    image: "assets/catalogue-samples/guanyan-s120-outward-window-screen.jpg",
+    image: "assets/product-samples/guanyan-s120-outward-window-screen-transparent.png",
     categories: ["window"],
-    catalogue: "assets/catalogues/ege-s120-window-screen-manual.pdf",
-    features: ["Outward-opening window with integrated screen", "S120 system family", "Manual and sample image for system comparison"],
+    features: ["Outward-opening window with integrated screen", "S120 system family", "Project information available via WhatsApp"],
     details: [
       ["Opening type", "Outward-opening window with screen"],
       ["Sample corner", "Guanyan S120 outward window with screen sample"],
@@ -254,9 +246,9 @@ const products = [
     specs: [
       ["System family", "Guanyan S120"],
       ["Application", "Window and screen integration"],
-      ["Documentation", "Product manual and sample-corner image"]
+      ["Documentation", "Project details available via WhatsApp"]
     ],
-    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    hardware: ["Project-specific hardware configuration", "Technical support available via WhatsApp"],
     colors: ["Powder coating", "Project-specific coating"]
   },
   {
@@ -264,10 +256,9 @@ const products = [
     title: "Guanyan S120 Outward Door with Screen",
     tag: "Door / Screen",
     summary: "Integrated outward-opening door and screen product system for balcony and terrace use.",
-    image: "assets/catalogue-samples/guanyan-s120-outward-door-screen.jpg",
+    image: "assets/product-samples/guanyan-s120-outward-door-screen-transparent.png",
     categories: ["door"],
-    catalogue: "assets/catalogues/guanyan-s120-outward-door-screen-manual.pdf",
-    features: ["Outward-opening door and screen system", "Balcony and terrace applications", "Manual and sample image for technical communication"],
+    features: ["Outward-opening door and screen system", "Balcony and terrace applications", "Project information available via WhatsApp"],
     details: [
       ["Opening type", "Outward-opening door with screen"],
       ["Sample corner", "Guanyan S120 outward door with screen sample"],
@@ -276,20 +267,19 @@ const products = [
     specs: [
       ["System family", "Guanyan S120"],
       ["Application", "Door and screen integration"],
-      ["Documentation", "Product manual and sample-corner image"]
+      ["Documentation", "Project details available via WhatsApp"]
     ],
-    hardware: ["Project-specific hardware configuration", "Technical manual available for review"],
+    hardware: ["Project-specific hardware configuration", "Technical support available via WhatsApp"],
     colors: ["Powder coating", "Project-specific coating"]
   },
   {
     id: "guanyan-150-panoramic-sliding-window",
     title: "Guanyan 150 Panoramic Sliding Window",
     tag: "Sliding / 150",
-    summary: "Panoramic sliding system catalogue for wide openings and view-focused projects.",
-    image: "assets/catalogue-samples/jingyan-150-panoramic-sliding.jpg",
+    summary: "Panoramic sliding system information for wide openings and view-focused projects.",
+    image: "assets/product-samples/jingyan-150-panoramic-sliding-transparent.png",
     categories: ["sliding"],
-    catalogue: "assets/catalogues/guanyan-150-panoramic-sliding-window-manual.pdf",
-    features: ["Panoramic sliding window system", "Wide-opening project applications", "Manual for view-focused project selection"],
+    features: ["Panoramic sliding window system", "Wide-opening project applications", "Project information available via WhatsApp"],
     details: [
       ["Opening type", "Panoramic sliding window"],
       ["Sample corner", "Guanyan 150 panoramic sliding sample"],
@@ -298,20 +288,19 @@ const products = [
     specs: [
       ["System family", "Guanyan 150"],
       ["Application", "Panoramic sliding openings"],
-      ["Documentation", "Product manual and sample image"]
+      ["Documentation", "Project details available via WhatsApp"]
     ],
-    hardware: ["Project-specific sliding hardware configuration", "Technical manual available for review"],
+    hardware: ["Project-specific sliding hardware configuration", "Technical support available via WhatsApp"],
     colors: ["Powder coating", "Project-specific coating"]
   },
   {
     id: "jingran-150-panoramic-sliding-window",
     title: "Jingran 150 Panoramic Sliding Window",
     tag: "Sliding / 150",
-    summary: "Jingran panoramic sliding system manual and sample image for large residential openings.",
-    image: "assets/catalogue-samples/jingyan-150-panoramic-sliding.jpg",
+    summary: "Jingran panoramic sliding system information and sample image for large residential openings.",
+    image: "assets/product-samples/jingyan-150-panoramic-sliding-transparent.png",
     categories: ["sliding"],
-    catalogue: "assets/catalogues/jingran-150-panoramic-sliding-window-manual.pdf",
-    features: ["Panoramic sliding system", "Wide-opening residential applications", "Manual for view-focused project selection"],
+    features: ["Panoramic sliding system", "Wide-opening residential applications", "Project information available via WhatsApp"],
     details: [
       ["Opening type", "Panoramic sliding window"],
       ["Sample corner", "Jingran 150 panoramic sliding sample"],
@@ -320,12 +309,37 @@ const products = [
     specs: [
       ["System family", "Jingran 150"],
       ["Application", "Panoramic sliding openings"],
-      ["Documentation", "Product manual and sample image"]
+      ["Documentation", "Project details available via WhatsApp"]
     ],
-    hardware: ["Project-specific sliding hardware configuration", "Technical manual available for review"],
+    hardware: ["Project-specific sliding hardware configuration", "Technical support available via WhatsApp"],
     colors: ["Powder coating", "Project-specific coating"]
   }
 ];
+
+const portfolioProductOrder = [
+  "e-ultra-96-inward-window",
+  "guanyan-s76-three-in-one-system",
+  "e-ultra-96-hinged-door",
+  "jingran-125-lift-slide",
+  "guanyan-e85-inward-window",
+  "guanyan-e85-outward-window",
+  "guanyan-96-passive-window",
+  "guanyan-e105-passive-inward-window",
+  "guanyan-s105-passive-inward-window",
+  "guanyan-e120-outward-window-screen",
+  "guanyan-s120-outward-window-screen",
+  "guanyan-s120-outward-door-screen",
+  "guanyan-150-panoramic-sliding-window",
+  "jingran-150-panoramic-sliding-window"
+];
+
+const portfolioShowcaseProducts = portfolioProductOrder
+  .map((id) => products.find((product) => product.id === id))
+  .filter(Boolean)
+  .map((product, index) => ({
+    ...product,
+    tag: `${index === 0 ? "Flagship | " : ""}${product.tag.replace(/\s*\/\s*/g, " | ")}`
+  }));
 
 const mediaContent = {
   "brand-film": {
@@ -346,6 +360,7 @@ const grid = document.querySelector("[data-product-grid]");
 const comparisonPanel = document.querySelector("[data-comparison-table]");
 const filterButtons = document.querySelectorAll("[data-filter]");
 const familyLinks = document.querySelectorAll("[data-family-filter]");
+const showcaseFilterLinks = document.querySelectorAll("[data-showcase-filter]");
 const dialog = document.querySelector("[data-product-dialog]");
 const dialogBody = document.querySelector("[data-dialog-body]");
 const dialogClose = document.querySelector("[data-dialog-close]");
@@ -565,8 +580,8 @@ function createTechnicalCards(product) {
 }
 
 function createProductCard(product, isFeatured = false, displayIndex = 0) {
-  const tone = displayIndex % 2 === 0 ? "blue" : "white";
-  const card = createElement("article", `product-card product-portfolio-card product-card-tone-${tone}${isFeatured ? " product-card-featured" : ""}`);
+  const tone = productToneCycle[displayIndex % productToneCycle.length];
+  const card = createElement("article", `product-card product-portfolio-card product-portfolio-row product-card-tone-${tone}${isFeatured ? " product-card-featured" : ""}`);
   card.dataset.productId = product.id;
   card.dataset.tone = tone;
   const mediaWrap = createElement("div", "product-card-media");
@@ -582,7 +597,7 @@ function createProductCard(product, isFeatured = false, displayIndex = 0) {
   mediaWrap.append(media);
 
   const body = createElement("div", "product-body");
-  const tag = createElement("span", "product-tag", isFeatured ? `Flagship / ${product.tag}` : product.tag);
+  const tag = createElement("span", "product-tag", product.tag);
   body.append(
     tag,
     createElement("h3", "", product.title),
@@ -596,20 +611,19 @@ function createProductCard(product, isFeatured = false, displayIndex = 0) {
     createElement("span", "", "View specifications"),
     createElement("span", "link-arrow", "→")
   );
-  detailButton.addEventListener("click", () => openProductDialog(product.id));
+  detailButton.addEventListener("click", () => openProductDialog(product.dialogProductId || product.id));
   actions.append(detailButton);
 
-  const catalogue = createElement("a", "text-button portfolio-link");
-  catalogue.append(
-    createElement("span", "", product.catalogue ? "Open product manual" : "Request product information"),
+  const whatsapp = createElement("a", "text-button portfolio-link");
+  whatsapp.append(
+    createElement("span", "", whatsappContactLabel),
     createElement("span", "link-arrow", "→")
   );
-  catalogue.href = product.catalogue || "cooperation.html";
-  if (product.catalogue) {
-    catalogue.target = "_blank";
-    catalogue.rel = "noopener";
-  }
-  actions.append(catalogue);
+  whatsapp.href = whatsappContactUrl;
+  whatsapp.target = "_blank";
+  whatsapp.rel = "noopener";
+  whatsapp.setAttribute("aria-label", "Contact e-gooo via WhatsApp for more product details");
+  actions.append(whatsapp);
   body.append(actions);
   card.append(mediaWrap, body);
   return card;
@@ -618,6 +632,29 @@ function createProductCard(product, isFeatured = false, displayIndex = 0) {
 function productMatchesFilter(product, filter) {
   if (filter === "all") return true;
   return product.categories.includes(filter);
+}
+
+function sortProductsForFilter(productList, filter) {
+  const ordered = [...productList];
+  const findSeriesIndex = (series) => {
+    const seriesPattern = new RegExp(`(^|[^0-9])${series}([^0-9]|$)`, "i");
+    return ordered.findIndex((product) => seriesPattern.test(`${product.title} ${product.tag} ${product.id}`));
+  };
+
+  if (filter === "window") {
+    const first95Index = findSeriesIndex("95");
+    if (first95Index > 0) {
+      ordered.unshift(...ordered.splice(first95Index, 1));
+    }
+  }
+
+  if (filter === "sliding") {
+    const first125Index = findSeriesIndex("125");
+    if (first125Index > 0) {
+      ordered.unshift(...ordered.splice(first125Index, 1));
+    }
+  }
+  return ordered;
 }
 
 function setActiveFilter(filter) {
@@ -632,11 +669,8 @@ function setActiveFilter(filter) {
 function renderProducts(filter = "all") {
   if (!grid) return;
 
-  const filtered = products.filter((product) => productMatchesFilter(product, filter));
-  const featuredIndex = filtered.findIndex((product) => product.image);
-  const ordered = featuredIndex > 0
-    ? [filtered[featuredIndex], ...filtered.slice(0, featuredIndex), ...filtered.slice(featuredIndex + 1)]
-    : filtered;
+  const filtered = portfolioShowcaseProducts.filter((product) => productMatchesFilter(product, filter));
+  const ordered = sortProductsForFilter(filtered, filter);
 
   grid.replaceChildren(...ordered.map((product, index) => createProductCard(product, index === 0 && Boolean(product.image), index)));
 }
@@ -748,15 +782,14 @@ function openProductDialog(productId) {
   quote.href = "cooperation.html";
   quote.addEventListener("click", () => closeDialog(dialog));
 
+  const whatsapp = createElement("a", "button secondary dark-text", whatsappContactLabel);
+  whatsapp.href = whatsappContactUrl;
+  whatsapp.target = "_blank";
+  whatsapp.rel = "noopener";
+  whatsapp.setAttribute("aria-label", "Contact e-gooo via WhatsApp for more product details");
+
   const actions = createElement("div", "product-sheet-actions");
-  actions.append(quote);
-  if (product.catalogue) {
-    const catalogue = createElement("a", "button secondary dark-text", "Download technical PDF");
-    catalogue.href = product.catalogue;
-    catalogue.target = "_blank";
-    catalogue.rel = "noopener";
-    actions.append(catalogue);
-  }
+  actions.append(quote, whatsapp);
   copy.append(actions);
 
   const hero = createElement("section", "product-sheet-hero");
@@ -868,6 +901,15 @@ filterButtons.forEach((button) => {
 familyLinks.forEach((link) => {
   link.addEventListener("click", () => {
     applyProductFilter(link.dataset.familyFilter || "all", true);
+  });
+});
+
+showcaseFilterLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const filter = link.dataset.showcaseFilter;
+    if (!validFilters.has(filter)) return;
+    event.preventDefault();
+    applyProductFilter(filter, true);
   });
 });
 
