@@ -496,19 +496,6 @@ function getProductOpeningRange(product) {
   return "90° / 180°";
 }
 
-function getConfigurationTags(product) {
-  if (product.categories.includes("sliding")) {
-    return ["LIFT-SLIDE", "LARGE OPENINGS", "PANORAMIC GLAZING"];
-  }
-  if (product.categories.includes("door")) {
-    return ["HINGED OPENING", "TERRACE ACCESS", "PROJECT HARDWARE"];
-  }
-  if (product.title.toLowerCase().includes("screen")) {
-    return ["OPENING WINDOW", "INTEGRATED SCREEN", "RESIDENTIAL USE"];
-  }
-  return ["INWARD-OPENING", "FIXED GLAZING", "LOW-ENERGY ENVELOPE"];
-}
-
 function createMetricStrip(product) {
   const systemDepth = findRowValue(product.specs, ["System depth"]);
   const systemFamily = findRowValue(product.specs, ["System family"]) || product.title.split(" ").slice(0, 2).join(" ");
@@ -785,17 +772,13 @@ function openProductDialog(productId) {
   const sampleGallery = createSampleGallery(product.samples);
   if (sampleGallery) media.append(sampleGallery);
 
-  const badges = createElement("div", "product-sheet-badges");
-  getConfigurationTags(product).forEach((tag) => badges.append(createElement("span", "", tag)));
-
   const copy = createElement("div", "product-sheet-copy");
   copy.append(
     createElement("span", "product-sheet-kicker", product.tag),
     createElement("h2", "", product.title),
     createElement("h3", "", "COMFORT, ENGINEERED."),
     createElement("p", "", product.summary),
-    createElement("div", "product-sheet-divider"),
-    badges
+    createElement("div", "product-sheet-divider")
   );
 
   const quote = createElement("a", "button primary", "Request quotation");

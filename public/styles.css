@@ -7028,25 +7028,6 @@ body .product-showcase-label {
   background: var(--brand-blue);
 }
 
-.product-sheet-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.product-sheet-badges span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 36px;
-  border: 1px solid rgba(10, 50, 179, 0.22);
-  padding: 8px 12px;
-  color: #152326;
-  background: #fff;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-}
-
 .product-sheet-actions {
   display: flex;
   flex-wrap: wrap;
