@@ -360,7 +360,7 @@ const grid = document.querySelector("[data-product-grid]");
 const comparisonPanel = document.querySelector("[data-comparison-table]");
 const filterButtons = document.querySelectorAll("[data-filter]");
 const familyLinks = document.querySelectorAll("[data-family-filter]");
-const showcaseFilterLinks = document.querySelectorAll("[data-showcase-filter]");
+const showcaseProductLinks = document.querySelectorAll("[data-showcase-product]");
 const dialog = document.querySelector("[data-product-dialog]");
 const dialogBody = document.querySelector("[data-dialog-body]");
 const dialogClose = document.querySelector("[data-dialog-close]");
@@ -675,10 +675,29 @@ function renderProducts(filter = "all") {
   grid.replaceChildren(...ordered.map((product, index) => createProductCard(product, index === 0 && Boolean(product.image), index)));
 }
 
+function findProductById(productId) {
+  return products.find((product) => product.id === productId);
+}
+
 function getInitialProductFilter() {
   const params = new URLSearchParams(window.location.search);
   const requestedFilter = params.get("filter") || "all";
   return validFilters.has(requestedFilter) ? requestedFilter : "all";
+}
+
+function getInitialProductDetail() {
+  const params = new URLSearchParams(window.location.search);
+  const requestedProduct = params.get("detail") || "";
+  return findProductById(requestedProduct) ? requestedProduct : "";
+}
+
+function clearProductDetailUrl() {
+  if (!window.location.search.includes("detail=")) return;
+
+  const nextUrl = new URL(window.location.href);
+  nextUrl.searchParams.delete("detail");
+  nextUrl.hash = "product-list";
+  window.history.replaceState({}, "", nextUrl);
 }
 
 function applyProductFilter(filter = "all", updateUrl = false) {
@@ -694,6 +713,7 @@ function applyProductFilter(filter = "all", updateUrl = false) {
   } else {
     nextUrl.searchParams.set("filter", nextFilter);
   }
+  nextUrl.searchParams.delete("detail");
   nextUrl.hash = "product-list";
   window.history.replaceState({}, "", nextUrl);
 }
@@ -746,7 +766,7 @@ function renderComparisonTable() {
 }
 
 function openProductDialog(productId) {
-  const product = products.find((item) => item.id === productId);
+  const product = findProductById(productId);
   if (!product || !dialog || !dialogBody) return;
 
   const sheet = createElement("article", "product-sheet");
@@ -823,6 +843,10 @@ function openProductDialog(productId) {
   sheet.append(headerBar, hero, createMetricStrip(product), technical, detailColumns, footerBar);
   dialogBody.replaceChildren(sheet);
 
+  if (dialog.open) {
+    return;
+  }
+
   if (typeof dialog.showModal === "function") {
     dialog.showModal();
   } else {
@@ -832,6 +856,7 @@ function openProductDialog(productId) {
 
 function closeDialog(targetDialog) {
   if (!targetDialog) return;
+  if (targetDialog === dialog) clearProductDetailUrl();
 
   if (targetDialog.open && typeof targetDialog.close === "function") {
     targetDialog.close();
@@ -904,12 +929,16 @@ familyLinks.forEach((link) => {
   });
 });
 
-showcaseFilterLinks.forEach((link) => {
+showcaseProductLinks.forEach((link) => {
   link.addEventListener("click", (event) => {
-    const filter = link.dataset.showcaseFilter;
-    if (!validFilters.has(filter)) return;
+    const productId = link.dataset.showcaseProduct;
+    if (!findProductById(productId)) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+
     event.preventDefault();
-    applyProductFilter(filter, true);
+    const nextUrl = new URL(link.href, window.location.href);
+    window.history.pushState({ productDetail: productId }, "", nextUrl);
+    openProductDialog(productId);
   });
 });
 
@@ -918,6 +947,7 @@ if (dialogClose && dialog) {
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) closeDialog(dialog);
   });
+  dialog.addEventListener("close", clearProductDetailUrl);
 }
 
 if (mediaClose && mediaDialog) {
@@ -926,6 +956,15 @@ if (mediaClose && mediaDialog) {
     if (event.target === mediaDialog) closeDialog(mediaDialog);
   });
 }
+
+window.addEventListener("popstate", () => {
+  const productId = getInitialProductDetail();
+  if (productId) {
+    openProductDialog(productId);
+    return;
+  }
+  if (dialog?.open) closeDialog(dialog);
+});
 
 document.querySelectorAll("[data-media-open]").forEach((button) => {
   button.addEventListener("click", () => openMediaDialog(button.dataset.mediaOpen));
@@ -981,4 +1020,6 @@ leadForms.forEach((form) => {
 
 applyProductFilter(getInitialProductFilter());
 renderComparisonTable();
+const initialProductDetail = getInitialProductDetail();
+if (initialProductDetail) openProductDialog(initialProductDetail);
 initHeroCarousel();
