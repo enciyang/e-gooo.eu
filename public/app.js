@@ -642,9 +642,9 @@ function sortProductsForFilter(productList, filter) {
   };
 
   if (filter === "window") {
-    const first95Index = findSeriesIndex("95");
-    if (first95Index > 0) {
-      ordered.unshift(...ordered.splice(first95Index, 1));
+    const first96Index = findSeriesIndex("96");
+    if (first96Index > 0) {
+      ordered.unshift(...ordered.splice(first96Index, 1));
     }
   }
 
